@@ -1,0 +1,28 @@
+.dishCart{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+}
+.dishMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 5px;
+    font-weight: 400;
+}
+.purchaseButton{
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    width: 100%;
+    height: 50px;
+    font-weight: 700;
+}
+.input{
+    text-align: center;
+}
