@@ -1,24 +1,74 @@
-import React, { useState } from 'react'
-import s from './Dish.module.css'
-const Dish = ({name, ingredients, methodCooking, price}) => {
-    const [amount, setAmount] = useState(0);
-function HandleAmountChange(e){
+import React, { useState } from "react";
+import s from "./Dish.module.css";
+const Dish = ({
+  name,
+  id,
+  ingredients,
+  methodCooking,
+  price,
+  setProductsList,
+}) => {
+  const [amount, setAmount] = useState(0);
+  function HandleAmountChange(e) {
     setAmount(e.target.value);
-}
-console.log(amount);
-console.log(price);
+  }
+  function handlePlus() {
+    setAmount(amount + 1);
+  }
+  function handleMinus() {
+    if (amount === 0) {
+      return;
+    }
+    setAmount(amount - 1);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (amount === 0) {
+      return;
+    }
+    setProductsList((prev) => {
+      localStorage.setItem(
+        "products",
+        JSON.stringify([...prev, { id, amount }])
+      );
+      return [...prev, { id, amount }];
+    });
+    setAmount(0);
+  }
   return (
-    <div className={s.dishMain}>
+    <form className={s.dishMain} onSubmit={handleSubmit}>
       <p>{name}</p>
       <p>Склад: {ingredients}</p>
       <p>Спосіб приготування: {methodCooking}</p>
       <div className={s.dishCart}>
-      <input type='number' step={0.5} onChange={HandleAmountChange} value={amount} min={0} className={s.input}></input>
-      <p className={s.totalPrice}>{amount*price} ₴</p>
-      <button className={s.purchaseButton} style={{font: 'initial'}}>додати до кошика</button>
+        <div className={s.inputWrap}>
+          <button onClick={handlePlus} className={s.plus} type="button">
+            +
+          </button>
+          <button
+            style={{ color: amount === 0 ? "gray" : "black" }}
+            onClick={handleMinus}
+            className={s.minus}
+            type="button"
+          >
+            -
+          </button>
+          <input
+            type="number"
+            step={0.5}
+            onChange={HandleAmountChange}
+            value={amount}
+            min={0}
+            className={s.input}
+          ></input>
+        </div>
+        <p className={s.totalPrice}>{amount * price} ₴</p>
+        <button type="submit" className={s.purchaseButton}>
+          додати до кошика
+        </button>
       </div>
-    </div>
-  )
-}
+    </form>
+  );
+};
 
 export default Dish;

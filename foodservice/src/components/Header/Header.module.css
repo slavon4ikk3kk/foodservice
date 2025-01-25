@@ -1,0 +1,16 @@
+.burger {
+  width: 40px;
+  height: 40px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+}
