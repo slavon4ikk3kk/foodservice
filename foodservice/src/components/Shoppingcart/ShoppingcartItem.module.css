@@ -1,0 +1,29 @@
+.input {
+    text-align: center;
+    width: calc(100% - 22px);
+    border: 1px solid black;
+    outline: none;
+    display: block;
+    padding: 10px;
+  }
+  .inputWrap {
+    width: 70px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .plus {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    background-color: transparent;
+    font-size: 25px;
+  }
+  .minus {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    background-color: transparent;
+    font-size: 25px;
+  }

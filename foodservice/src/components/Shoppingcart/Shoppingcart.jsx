@@ -2,7 +2,10 @@ import React from "react";
 import s from "./Shoppingcart.module.css";
 import images from "../../assets/index";
 import dishes from "../../Data/dishes";
+import ShoppingcartItem from "./ShoppingcartItem";
+
 const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
+  
   return (
     <div className={s.modal}>
       <div>
@@ -16,6 +19,18 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
           alt="close"
         />
       </div>
+      {productsList.map((product) => {
+
+        const currentDish = dishes.find((dish) => {
+
+          return product.id === dish.id
+        })
+        console.log(currentDish);
+
+        return (<ShoppingcartItem currentDish={currentDish} amount={product.amount}/>)
+
+
+      })}
     </div>
   );
 };
