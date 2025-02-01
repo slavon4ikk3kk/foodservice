@@ -29,6 +29,8 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
             <ShoppingcartItem
               currentDish={currentDish}
               amount={product.amount}
+              setProductsList = {setProductsList}
+              
             />
           );
         })}
