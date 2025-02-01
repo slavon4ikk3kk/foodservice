@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import s from "./ShoppingcartItem.module.css";
-const ShoppingcartItem = ({ amount: storedAmount, currentDish, setProductList }) => {
+const ShoppingcartItem = ({
+  amount: storedAmount,
+  currentDish,
+  setProductsList,
+}) => {
   const [amount, setAmount] = useState(storedAmount);
   function HandleAmountChange(e) {
     setAmount(e.target.value);
@@ -15,11 +19,10 @@ const ShoppingcartItem = ({ amount: storedAmount, currentDish, setProductList })
     setAmount(amount - 1);
   }
   useEffect(() => {
-      setProductList((prev)=>{
-       const newList = prev.map((bagItem)=>{
-           
-       })
-      })
+    setProductsList((prev) => {
+      const newList = prev.map((bagItem) => {});
+      return [];
+    });
   }, []);
   return (
     <li>
