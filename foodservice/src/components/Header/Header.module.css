@@ -14,3 +14,18 @@
   z-index: 1000;
   background-color: white;
 }
+.bagImg {
+  width: 22px;
+  height: 26px;
+}
+.count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  color: white;
+  font-size: 12px;
+}
+.bagWrap {
+  position: relative;
+}

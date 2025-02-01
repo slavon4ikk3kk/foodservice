@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
-import Dishes from "./dishes";
+import Dishes from "../../Data/dishes";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
 
 const Cabinet = () => {
@@ -10,7 +10,7 @@ const Cabinet = () => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
   const [isOpen, setisOpen] = useState(false);
-  console.log(window.screen);
+
   return (
     <div style={{ padding: "90px 0" }} className="container">
       <Header setisOpen={setisOpen} productsList={productsList} />

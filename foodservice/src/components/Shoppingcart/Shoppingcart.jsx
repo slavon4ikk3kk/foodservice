@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./Shoppingcart.module.css";
 import images from "../../assets/index";
+import dishes from "../../Data/dishes";
 const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
   return (
     <div className={s.modal}>
