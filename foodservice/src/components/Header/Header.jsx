@@ -4,7 +4,8 @@ import s from "./Header.module.css";
 const Header = ({ productsList, setisOpen }) => {
   return (
     <header className={s.header}>
-      <p
+      <img src={images.shoppingBag} className={s.cartIcon}></img>
+      <p className={s.count}
         onClick={() => {
           setisOpen(true);
         }}
