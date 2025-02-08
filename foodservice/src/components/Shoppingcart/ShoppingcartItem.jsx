@@ -18,17 +18,26 @@ const ShoppingcartItem = ({
     }
     setAmount(amount - 1);
   }
-    useEffect(() => {
-      setProductsList((prev) => {
-        const newList = prev.map((bagItem) => {
-          if(bagItem.id === currentDish.id){
-            return {id: bagItem.id, amount: amount}
-          }
-          return bagItem
-        });
-        return newList;
-      }); 
-    }, [amount]); 
+  useEffect(() => {
+    setProductsList((prev) => {
+      const newList = prev.map((bagItem) => {
+        if (bagItem.id === currentDish.id) {
+          return { id: bagItem.id, amount: amount };
+        }
+        return bagItem;
+      });
+      return newList;
+    });
+  }, [amount]);
+
+  function onDelete() {
+    setProductsList((prev) => {
+      const newList = prev.filter((bagItem) => {
+        return false;
+      });
+    });
+  }
+  //записати в productlist нове значення, без обєкта id якого співпадає з поточною карткою
   return (
     <li>
       <p>{currentDish.name}</p>
@@ -53,6 +62,7 @@ const ShoppingcartItem = ({
           min={0}
           className={s.input}
         ></input>
+        <button onClick={onDelete}> delete</button>
       </div>
     </li>
   );

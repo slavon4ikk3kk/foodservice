@@ -10,10 +10,9 @@ const Cabinet = () => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
   const [isOpen, setisOpen] = useState(false);
-useEffect(() => {
-  localStorage.setItem('products', JSON.stringify({productsList})
-  )
-}, [productsList]);
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(productsList));
+  }, [productsList]);
   return (
     <div style={{ padding: "90px 0" }} className="container">
       <Header setisOpen={setisOpen} productsList={productsList} />
