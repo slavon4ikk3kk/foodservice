@@ -1,4 +1,4 @@
-import images from "../assets/index.js"
+import images from "../assets/index.js";
 
 const Dishes = [
   {
@@ -8,9 +8,8 @@ const Dishes = [
       "філе риби (хек), цибуля ріпчаста, морква, хліб білий, молоко, яйця курячі, сіль, перець чорний мелений, панірувальні сухарі.",
     methodCooking:
       "не розморожуючи, обсмажити на рослинній олії з обох сторін до рум’яної скоринки, накрити кришкою та довести до готовності.",
-      image: <img src={images.hek}></img>,
+    image: images.hekCutlets,
     price: 260,
-    
   },
   {
     id: "cutletThreeMeats",
@@ -20,7 +19,7 @@ const Dishes = [
     methodCooking:
       "не розморожуючи, обсмажити на рослинній олії з обох сторін до рум’яної скоринки, накрити кришкою та довести до готовності.",
     price: 310,
-    image: <img src={images.cutlets}></img>,
+    image: images.cutlets,
   },
   {
     id: "cutletPoKyivski",

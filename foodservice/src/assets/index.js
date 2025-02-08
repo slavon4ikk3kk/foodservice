@@ -13,10 +13,19 @@ import zraziMeat from "./zraziMeat.jpg";
 import zraziMushrooms from "./zraziMushrooms.jpg";
 import dublings from "./dublings.jpg";
 
-
-
-
-
-
-
-export default { burger, close, garbage, hekCutlets, cutlets, kyivski, paper, holubsi, pancakes, pancakesCheese, pancakesMushroom, zraziMeat, zraziMushrooms, dublings };
+export default {
+  burger,
+  close,
+  garbage,
+  hekCutlets,
+  cutlets,
+  kyivski,
+  paper,
+  holubsi,
+  pancakes,
+  pancakesCheese,
+  pancakesMushroom,
+  zraziMeat,
+  zraziMushrooms,
+  dublings,
+};
