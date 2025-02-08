@@ -18,12 +18,17 @@ const ShoppingcartItem = ({
     }
     setAmount(amount - 1);
   }
-  useEffect(() => {
-    setProductsList((prev) => {
-      const newList = prev.map((bagItem) => {});
-      return [];
-    });
-  }, []);
+    useEffect(() => {
+      setProductsList((prev) => {
+        const newList = prev.map((bagItem) => {
+          if(bagItem.id === currentDish.id){
+            return {id: bagItem.id, amount: amount}
+          }
+          return bagItem
+        });
+        return newList;
+      }); 
+    }, [amount]); 
   return (
     <li>
       <p>{currentDish.name}</p>

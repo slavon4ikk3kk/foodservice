@@ -28,10 +28,6 @@ const Dish = ({
       return;
     }
     setProductsList((prev) => {
-      localStorage.setItem(
-        "products",
-        JSON.stringify([...prev, { id, amount }])
-      );
       return [...prev, { id, amount }];
     });
     setAmount(0);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
@@ -10,7 +10,10 @@ const Cabinet = () => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
   const [isOpen, setisOpen] = useState(false);
-
+useEffect(() => {
+  localStorage.setItem('products', JSON.stringify({productsList})
+  )
+}, [productsList]);
   return (
     <div style={{ padding: "90px 0" }} className="container">
       <Header setisOpen={setisOpen} productsList={productsList} />
