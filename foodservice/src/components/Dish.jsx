@@ -6,6 +6,7 @@ const Dish = ({
   ingredients,
   methodCooking,
   price,
+  image,
   setProductsList,
 }) => {
   const [amount, setAmount] = useState(0);
@@ -37,6 +38,7 @@ const Dish = ({
   }
   return (
     <form className={s.dishMain} onSubmit={handleSubmit}>
+      <img src={image}></img>
       <p>{name}</p>
       <p>Склад: {ingredients}</p>
       <p>Спосіб приготування: {methodCooking}</p>

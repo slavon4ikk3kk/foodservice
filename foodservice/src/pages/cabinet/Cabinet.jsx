@@ -32,6 +32,7 @@ const Cabinet = () => {
                 methodCooking={dish.methodCooking}
                 price={dish.price}
                 id={dish.id}
+                image={dish.image}
               ></Dish>
             </li>
           );

@@ -141,12 +141,12 @@ img {
 }
 
 body {
-  font-family: "Inter", serif;
+  font-family: 'Poppins', sans-serif;
   font-optical-sizing: auto;
 }
 button {
   cursor: pointer;
-  font-family: "Inter", serif;
+  font-family: 'Poppins', sans-serif;
 }
 .container {
   width: 100%;
