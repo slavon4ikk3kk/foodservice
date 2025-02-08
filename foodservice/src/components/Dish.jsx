@@ -38,7 +38,7 @@ const Dish = ({
   }
   return (
     <form className={s.dishMain} onSubmit={handleSubmit}>
-      <img src={image}></img>
+      <img src={image} className={s.img}></img>
       <p>{name}</p>
       <p>Склад: {ingredients}</p>
       <p>Спосіб приготування: {methodCooking}</p>

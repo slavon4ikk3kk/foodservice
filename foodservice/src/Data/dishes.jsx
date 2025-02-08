@@ -29,7 +29,7 @@ const Dishes = [
     methodCooking:
       " не розморожуючи, обсмажити в сотейнику у великій кількості рослинної олії.",
     price: 370,
-    image: <img src={images.kyivski}></img>,
+    image: images.kyivski,
   },
   {
     id: "cabbageRollsMeat",
@@ -39,7 +39,7 @@ const Dishes = [
     methodCooking:
       "обсмажити на пательні цибулю з морквою на олії до золотистого кольору, додаємо томатну пасту та цукор з сіллю за смаком, тушкувати 5 хв. Густоту підливи регулюємо водою. Заливаємо підливою та тушкуємо на маленькому вогні або запікаємо у духовці до готовності. Додаємо сметану за смаком. ",
     price: 260,
-    image: <img src={images.holubsi}></img>,
+    image: images.holubsi,
   },
   {
     id: "pepper",
@@ -49,7 +49,7 @@ const Dishes = [
     methodCooking:
       "обсмажити на пательні цибулю з морквою на олії до золотистого кольору, додаємо томатну пасту та цукор з сіллю за смаком, тушкувати 5 хв. Густоту підливи регулюємо водою. Заливаємо підливою та тушкуємо на маленькому вогні або запікаємо у духовці до готовності. Додаємо сметану за смаком. ",
     price: 300,
-    image: <img src={images.paper}></img>,
+    image: images.paper,
   },
   {
     id: "pancakesMeat",
@@ -59,7 +59,7 @@ const Dishes = [
     methodCooking:
       "не розморожуючи, обсмажити на пательні під кришкою з обох боків до рум’яної скоринки.",
     price: 240,
-    image: <img src={images.pancakes}></img>,
+    image: images.pancakes,
   },
   {
     id: "pancakesChickenMushrooms",
@@ -69,7 +69,7 @@ const Dishes = [
     methodCooking:
       "не розморожуючи, обсмажити на пательні під кришкою з обох боків до рум’яної скоринки.",
     price: 260,
-    image: <img src={images.pancakesMushroom}></img>,
+    image: images.pancakesMushroom,
   },
   {
     id: "pancakesCheese",
@@ -79,7 +79,7 @@ const Dishes = [
     methodCooking:
       "не розморожуючи, обсмажити на пательні під кришкою з обох боків до рум’яної скоринки.",
     price: 190,
-    image: <img src={images.pancakesCheese}></img>,
+    image: images.pancakesCheese,
   },
   {
     id: "potatoSlicesMeat",
@@ -89,7 +89,7 @@ const Dishes = [
     methodCooking:
       "не розморожуючи, обсмажити на пательні під кришкою з обох боків до рум’яної скоринки.",
     price: 210,
-    image: <img src={images.zraziMeat}></img>,
+    image: images.zraziMeat,
   },
   {
     id: "potatoSlicesMushrooms",
@@ -99,7 +99,7 @@ const Dishes = [
     methodCooking:
       "не розморожуючи, обсмажити на пательні під кришкою з обох боків до рум’яної скоринки.",
     price: 180,
-    image: <img src={images.zraziMushrooms}></img>,
+    image: images.zraziMushrooms,
   },
   {
     id: "dumplings",
@@ -108,7 +108,7 @@ const Dishes = [
       "борошно пшеничне вищого сорту, філе куряче, свинина знежилована напівжирна, вода питна, цибуля ріпчаста, олія соняшникова рафінована, сіль кухонна, перець чорний мелений",
     methodCooking: "-",
     price: 230,
-    image: <img src={images.dublings}></img>,
+    image: images.dublings,
   },
 ];
 export default Dishes;
