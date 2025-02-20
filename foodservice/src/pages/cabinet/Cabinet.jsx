@@ -21,6 +21,7 @@ const Cabinet = () => {
           setisOpen={setisOpen}
           productsList={productsList}
           setProductsList={setProductsList}
+  
         />
       )}
       <ul className={s.list}>

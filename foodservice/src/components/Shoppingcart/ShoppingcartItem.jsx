@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import images from "../../assets/index.js"
 import s from "./ShoppingcartItem.module.css";
 const ShoppingcartItem = ({
   amount: storedAmount,
@@ -32,16 +33,18 @@ const ShoppingcartItem = ({
 
   function onDelete() {
     setProductsList((prev) => {
-      const newList = prev.filter((bagItem) => {
-        return false;
-      });
+      const newList = prev.filter((bagItem) => bagItem.id !== currentDish.id);
+      return newList;
     });
   }
   //записати в productlist нове значення, без обєкта id якого співпадає з поточною карткою
   return (
-    <li>
-      <p>{currentDish.name}</p>
-      <p>{currentDish.price}</p>
+    <li className={s.cartList}>
+      <img src={currentDish.image} className={s.currentImg}></img>
+      <div className={s.names}>
+      <p style={{fontWeight: 'bold'}}>{currentDish.name}</p>
+      <p>{currentDish.price}₴</p>
+      </div>
       <div className={s.inputWrap}>
         <button onClick={handlePlus} className={s.plus} type="button">
           +
@@ -62,7 +65,10 @@ const ShoppingcartItem = ({
           min={0}
           className={s.input}
         ></input>
-        <button onClick={onDelete}> delete</button>
+        <button onClick={onDelete} className={s.binButton}>
+          <img src={images.bin} className={s.bin}></img>
+        </button>
+
       </div>
     </li>
   );

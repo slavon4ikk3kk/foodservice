@@ -1,28 +1,90 @@
+
 .input {
-  text-align: center;
-  width: calc(100% - 22px);
+  display: block; 
+  width: 100%; 
+  max-width: 200px; 
   border: 1px solid black;
-  outline: none;
-  display: block;
-  padding: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  margin: 0 auto; 
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
+
+
 .inputWrap {
-  width: 70px;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  gap: 10px;
   position: relative;
+  width: 100%; 
+  max-width: 300px; 
+  margin: 0 auto;
 }
+
+
 .plus {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 10px;
+  right: 55px;
   background-color: transparent;
   font-size: 25px;
+  cursor: pointer;
 }
+
+
 .minus {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 10px;
+  left: 55px;
   background-color: transparent;
   font-size: 25px;
+  cursor: pointer;
+}
+
+
+.binButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -50px; 
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+
+.bin {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+
+.bin:hover {
+  transform: scale(1.1);
+}
+.currentImg{
+  width: 150px;
+  height: 100px;
+  margin: 10px;
+  
+}
+.names{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+.cartList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
