@@ -41,10 +41,15 @@ const ShoppingcartItem = ({
   return (
     <li className={s.cartList}>
       <img src={currentDish.image} className={s.currentImg}></img>
+      <div className={s.rightSide}>
       <div className={s.names}>
       <p>{currentDish.name}</p>
+      <button onClick={onDelete} className={s.binButton}>
+          <img src={images.bin} className={s.bin}></img>
+        </button>
       <p>{currentDish.price}₴</p>
       </div>
+      
       <div className={s.inputWrap}>
         <button onClick={handlePlus} className={s.plus} type="button">
           +
@@ -65,10 +70,9 @@ const ShoppingcartItem = ({
           min={0}
           className={s.input}
         ></input>
-        <button onClick={onDelete} className={s.binButton}>
-          <img src={images.bin} className={s.bin}></img>
-        </button>
+       
 
+      </div>
       </div>
     </li>
   );
