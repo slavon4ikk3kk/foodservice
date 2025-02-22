@@ -28,6 +28,17 @@ const Dish = ({
       return;
     }
     setProductsList((prev) => {
+      const isInCart = prev.some((dishObj)=>{
+        return dishObj.id === id;   
+      });
+      if(isInCart){
+         return prev.map((dishObj)=>{
+             if(dishObj.id === id){
+              return {id, amount: amount + dishObj.amount}
+             }
+             return dishObj;
+         })
+      }
       return [...prev, { id, amount }];
     });
     setAmount(0);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
-import Dishes from "../../Data/dishes";
+import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
 
 const Cabinet = () => {

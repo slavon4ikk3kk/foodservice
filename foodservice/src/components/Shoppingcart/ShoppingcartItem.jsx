@@ -42,7 +42,7 @@ const ShoppingcartItem = ({
     <li className={s.cartList}>
       <img src={currentDish.image} className={s.currentImg}></img>
       <div className={s.names}>
-      <p style={{fontWeight: 'bold'}}>{currentDish.name}</p>
+      <p>{currentDish.name}</p>
       <p>{currentDish.price}₴</p>
       </div>
       <div className={s.inputWrap}>
