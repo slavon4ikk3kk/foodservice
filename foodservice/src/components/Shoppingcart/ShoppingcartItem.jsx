@@ -49,6 +49,7 @@ const ShoppingcartItem = ({
           </button>
         </div>
         <p>{currentDish.price}₴</p>
+        <div className={s.totalProducts}>
         <div className={s.inputWrap}>
           <button onClick={handlePlus} className={s.plus} type="button">
             +
@@ -69,6 +70,8 @@ const ShoppingcartItem = ({
             min={0}
             className={s.input}
           ></input>
+          <p>{currentDish.price * amount}</p>
+          </div>
         </div>
       </div>
     </li>

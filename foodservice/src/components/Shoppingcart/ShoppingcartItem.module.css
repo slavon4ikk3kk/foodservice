@@ -32,7 +32,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 55px;
+  left: 55px;
   background-color: transparent;
   font-size: 25px;
   cursor: pointer;
@@ -42,7 +42,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 55px;
+  right: 55px;
   background-color: transparent;
   font-size: 25px;
   cursor: pointer;
@@ -73,6 +73,7 @@
 .names {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .cartList {
   display: flex;
@@ -80,4 +81,8 @@
   justify-content: center;
   padding: 20px 0;
   gap: 20px;
+}
+.totalProducts{
+  display: flex;
+  justify-content: space-between;
 }
