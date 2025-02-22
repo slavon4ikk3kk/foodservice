@@ -50,28 +50,28 @@ const ShoppingcartItem = ({
         </div>
         <p>{currentDish.price}₴</p>
         <div className={s.totalProducts}>
-        <div className={s.inputWrap}>
-          <button onClick={handlePlus} className={s.plus} type="button">
-            +
-          </button>
-          <button
-            style={{ color: amount === 0 ? "gray" : "black" }}
-            onClick={handleMinus}
-            className={s.minus}
-            type="button"
-          >
-            -
-          </button>
-          <input
-            type="number"
-            step={0.5}
-            onChange={HandleAmountChange}
-            value={amount}
-            min={0}
-            className={s.input}
-          ></input>
-          <p>{currentDish.price * amount}</p>
+          <div className={s.inputWrap}>
+            <button onClick={handlePlus} className={s.plus} type="button">
+              +
+            </button>
+            <button
+              style={{ color: amount === 0 ? "gray" : "black" }}
+              onClick={handleMinus}
+              className={s.minus}
+              type="button"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              step={0.5}
+              onChange={HandleAmountChange}
+              value={amount}
+              min={0}
+              className={s.input}
+            ></input>
           </div>
+          <p>{currentDish.price * amount}</p>
         </div>
       </div>
     </li>
