@@ -27,7 +27,7 @@ const Header = ({ productsList, setisOpen }) => {
           {productsList.length}
         </p>
       </div>
-
+      <img className={s.logo} src={images.logo} alt="logo" />
       <img className={s.burger} src={images.burger} alt="burger" />
     </header>
   );

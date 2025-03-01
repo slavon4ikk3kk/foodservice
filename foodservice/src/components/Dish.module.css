@@ -1,16 +1,14 @@
-
 .dishCart {
   width: 100%;
-  padding-top: 16px;
 }
 .dishMain {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   list-style: none;
   gap: 15px;
-  padding: 5px;
+  padding: 0px 40px;
   font-weight: 400;
 }
 .purchaseButton {
@@ -32,7 +30,6 @@
 .inputWrap {
   width: 100%;
   position: relative;
-  margin-bottom: 20px;
 }
 .plus {
   position: absolute;
@@ -51,9 +48,25 @@
   font-size: 25px;
 }
 .totalPrice {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: left;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: rgb(51, 51, 51);
 }
-.img{
-  width: 90%;
+.name {
+  text-align: left;
+  font-size: 18px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: rgb(51, 51, 51);
+}
+.img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
 }

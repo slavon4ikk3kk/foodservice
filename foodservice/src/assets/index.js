@@ -12,7 +12,8 @@ import pancakesMushroom from "./pancakesMushroom.jpg";
 import zraziMeat from "./zraziMeat.jpg";
 import zraziMushrooms from "./zraziMushrooms.jpg";
 import dublings from "./dublings.jpg";
-import bin from "./bin.jpg"
+import bin from "./bin.jpg";
+import logo from "./food.svg";
 export default {
   burger,
   close,
@@ -28,5 +29,6 @@ export default {
   zraziMeat,
   zraziMushrooms,
   dublings,
-  bin
+  bin,
+  logo,
 };

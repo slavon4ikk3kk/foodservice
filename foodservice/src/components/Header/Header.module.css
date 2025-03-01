@@ -12,7 +12,8 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: brown;
+  background-color: white;
+  border-bottom: 1px solid black;
 }
 .bagImg {
   width: 22px;
@@ -28,4 +29,12 @@
 }
 .bagWrap {
   position: relative;
+}
+.logo {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
