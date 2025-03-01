@@ -9,7 +9,7 @@
   overflow: scroll;
   padding: 0 20px;
 }
-.modalHead{
+.modalHead {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,10 +20,10 @@
   font-variant: normal;
   text-decoration: none;
   line-height: 1.4em;
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
   border-bottom: 1px solid black;
 }
-.span{
+.span {
   font-size: 16px;
   font-style: normal;
   font-variant: normal;
@@ -31,13 +31,13 @@
   text-decoration: none;
   font-family: "Poppins", "sans-serif";
   line-height: 1.4em;
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
 }
 .close {
   width: 30px;
   height: 30px;
 }
-.totalCost{
+.totalCost {
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -46,13 +46,12 @@
   font-family: "Poppins", sans-serif;
   border-top: 1px solid grey;
 }
-.totalCostContainer{
+.totalCostContainer {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 50vh;
 }
-.button{
+.button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,8 +63,12 @@
   text-decoration: none;
   font-family: "Poppins", "sans-serif";
   line-height: 1.4em;
-  background-color: #E2705A;
+  background-color: #e2705a;
   padding: 6px;
   color: white;
   width: 100%;
+}
+.purchaseList {
+  height: calc(100vh - 170px);
+  overflow: scroll;
 }
