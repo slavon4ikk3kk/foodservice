@@ -4,7 +4,7 @@ import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
 import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
-
+import images from "../../assets/index.js"
 const Cabinet = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [productsList, setProductsList] = useState(() => {
@@ -28,6 +28,7 @@ const Cabinet = () => {
       {successModal && (
         <div className={s.successModal}>
           <div className={s.successModalWrap}>
+            <button className={s.buttonClose} onClick={() => {setSuccessModal(false)}}><img src={images.close} className={s.close}></img></button>
             <p className={s.successModalText}>
               Замовлення було успішно прийняте!
             </p>
