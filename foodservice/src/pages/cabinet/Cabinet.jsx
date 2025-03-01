@@ -6,6 +6,7 @@ import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
 
 const Cabinet = () => {
+  const [successModal, setSuccessModal] = useState(false);
   const [productsList, setProductsList] = useState(() => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
@@ -21,8 +22,12 @@ const Cabinet = () => {
           setisOpen={setisOpen}
           productsList={productsList}
           setProductsList={setProductsList}
-  
+          setSuccessModal={setSuccessModal}
         />
+      )}
+      {successModal && (<div className={s.successModal}>
+        <div className={s.successModalText}><p>Замовлення було успішно прийняте!</p></div>
+      </div>
       )}
       <ul className={s.list}>
         {Dishes.map((dish) => {

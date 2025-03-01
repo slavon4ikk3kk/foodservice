@@ -4,13 +4,19 @@ import images from "../../assets/index";
 import dishes from "../../Data/dishes.jsx";
 import ShoppingcartItem from "./ShoppingcartItem";
 
-const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
+const ShoppingCart = ({ setProductsList, productsList, setisOpen, setSuccessModal }) => {
   const totalCost = productsList.reduce((sum, product) => {
     const currentPrice = dishes.find((dish) => {
       return product.id === dish.id;
     });
     return sum + product.amount * currentPrice.price;
   }, 0);
+
+  function onSubmit(){
+        setSuccessModal(true);
+        setProductsList([]);
+        setisOpen(false);
+  }
 
   return (
     <div className={s.modal}>
@@ -49,7 +55,7 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
           <p>Загальна ціна:</p>
           <span>{totalCost}₴</span>
         </div>
-        <button className={s.button}>Зробити замовлення</button>
+        <button className={s.button} onClick={onSubmit}>Зробити замовлення</button>
       </div>
     </div>
   );

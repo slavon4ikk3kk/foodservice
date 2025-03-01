@@ -71,7 +71,7 @@ const ShoppingcartItem = ({
               className={s.input}
             ></input>
           </div>
-          <p>{currentDish.price * amount}</p>
+          <p>{currentDish.price * amount}₴</p>
         </div>
       </div>
   
