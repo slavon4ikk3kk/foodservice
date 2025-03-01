@@ -108,7 +108,7 @@ const Dishes = [
       "борошно пшеничне вищого сорту, філе куряче, свинина знежилована напівжирна, вода питна, цибуля ріпчаста, олія соняшникова рафінована, сіль кухонна, перець чорний мелений",
     methodCooking: "-",
     price: 230,
-    image: images.dublings,
+    image:  images.dublings,
   },
 ];
 export default Dishes;

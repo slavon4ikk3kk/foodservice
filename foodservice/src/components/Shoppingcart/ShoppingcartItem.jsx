@@ -74,6 +74,7 @@ const ShoppingcartItem = ({
           <p>{currentDish.price * amount}</p>
         </div>
       </div>
+  
     </li>
   );
 };

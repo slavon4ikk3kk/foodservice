@@ -6,7 +6,6 @@
   padding: 10px 15px;
   text-align: center;
   margin: 0 auto;
-  border-radius: 5px;
   font-size: 16px;
   box-sizing: border-box;
 }
@@ -17,7 +16,6 @@
   align-items: center;
   gap: 10px;
   position: relative;
-
   max-width: 300px;
   width: 78px;
 }

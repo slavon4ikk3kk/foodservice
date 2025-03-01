@@ -13,10 +13,11 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
     return sum + product.amount * currentPrice.price;
   }, 0)
 
+
   return (
     <div className={s.modal}>
       <div className={s.modalHead}>
-        <h2>Кошик: <span className={s.span}>{productsList.length} товари</span></h2>
+        <h2>Кошик: <span className={s.span}>{productsList.length} {productsList.length < 5 ? "товари" : "товарів"}</span></h2>
         <img
           onClick={() => {
             setisOpen(false);
@@ -48,6 +49,7 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
           <p>Загальна ціна:</p>
           <span>{totalCost}₴</span>
         </div>
+        <button className={s.button}>Зробити замовлення</button>
       </div>
 
     </div>
