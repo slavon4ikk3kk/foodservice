@@ -25,9 +25,14 @@ const Cabinet = () => {
           setSuccessModal={setSuccessModal}
         />
       )}
-      {successModal && (<div className={s.successModal}>
-        <div className={s.successModalText}><p>Замовлення було успішно прийняте!</p></div>
-      </div>
+      {successModal && (
+        <div className={s.successModal}>
+          <div className={s.successModalWrap}>
+            <p className={s.successModalText}>
+              Замовлення було успішно прийняте!
+            </p>
+          </div>
+        </div>
       )}
       <ul className={s.list}>
         {Dishes.map((dish) => {
