@@ -17,7 +17,7 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen }) => {
   return (
     <div className={s.modal}>
       <div className={s.modalHead}>
-        <h2>Кошик: <span className={s.span}>{productsList.length} {productsList.length < 5 ? "товари" : "товарів"}</span></h2>
+        <h2>Кошик: <span className={s.span}>{productsList.length} товари(-ів)</span></h2>
         <img
           onClick={() => {
             setisOpen(false);
