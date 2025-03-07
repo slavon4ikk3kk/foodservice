@@ -39,7 +39,7 @@ const ShoppingCart = ({ setProductsList, productsList, setisOpen, setSuccessModa
           const currentDish = dishes.find((dish) => {
             return product.id === dish.id;
           });
-          console.log(currentDish);
+          
 
           return (
             <ShoppingcartItem

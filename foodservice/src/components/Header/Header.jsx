@@ -27,8 +27,10 @@ const Header = ({ productsList, setisOpen }) => {
           {productsList.length}
         </p>
       </div>
+      <div className={s.icons}>
+      <p className={s.title}>Food Service</p>
       <img className={s.logo} src={images.logo} alt="logo" />
-      <img className={s.burger} src={images.burger} alt="burger" />
+      </div>
     </header>
   );
 };

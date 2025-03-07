@@ -31,10 +31,24 @@
   position: relative;
 }
 .logo {
+  position: relative;
+  top: 0;
+  left: 0;
   width: 70px;
   height: 70px;
+}
+.title{
+  font-family: "Sigmar";
+  font-weight: 400;
+  font-size: 30px;
+  color: black;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.icons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

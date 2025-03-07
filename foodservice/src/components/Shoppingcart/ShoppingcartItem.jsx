@@ -37,9 +37,10 @@ const ShoppingcartItem = ({
       return newList;
     });
   }
-  //записати в productlist нове значення, без обєкта id якого співпадає з поточною карткою
+  
   return (
     <li className={s.cartList}>
+      
       <img src={currentDish.image} className={s.currentImg}></img>
       <div className={s.rightSide}>
         <div className={s.names}>

@@ -44,6 +44,7 @@ const Dish = ({
     setAmount(0);
   }
   return (
+    
     <form className={s.dishMain} onSubmit={handleSubmit}>
       <img src={image} className={s.img}></img>
       <p className={s.name}>{name}</p>
