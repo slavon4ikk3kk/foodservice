@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./Success.module.css";
 import images from "../../assets/index";
 import axios from "axios";
@@ -11,20 +11,24 @@ const chatId =
   import.meta.env.REACT_APP_TELEGRAM_CHAT_ID;
 
 const Success = ({
+
   setSuccessModal,
   productsList,
   setProductsList,
   setisOpen,
   totalCost,
 }) => {
+  const [isConfirmAddress, setIsConfirmAddress] = useState(false);
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
   async function onSubmit() {
     let validMessage = `Зроблено замовлення: `;
     productsList.forEach((product) => {
-      validMessage += `\n${
-        dishes.find((dish) => {
-          return product.id === dish.id;
-        }).name
-      }, Кількість товару: ${product.amount}`;
+      validMessage += `\n${dishes.find((dish) => {
+        return product.id === dish.id;
+      }).name
+        }, Кількість товару: ${product.amount}`;
     });
     validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
     setSuccessModal(true);
@@ -41,6 +45,16 @@ const Success = ({
       console.error("Помилка відправки:", error);
     }
   }
+  function HandleName(e){
+         setName(e.target.value);
+  }
+  function HandleAddress(e){
+    setAddress(e.target.value);
+  }
+  function HandlePhone(e){
+    setPhone(e.target.value);
+  }
+
   return (
     <div className={s.successModal}>
       <div className={s.successModalWrap}>
@@ -53,7 +67,23 @@ const Success = ({
         >
           <img src={images.close} className={s.close}></img>
         </button>
-        <p className={s.successModalText}>Замовлення було успішно прийняте!</p>
+        {isConfirmAddress ?  <p className={s.successModalText}>Замовлення було успішно прийняте!</p> : 
+        <form className={s.form}>
+          <div className={s.inputWrap}>
+          <label className={s.label}>Повне ім'я</label>
+          <input className={s.input} value={name} onChange={HandleName}></input>
+          </div>
+          <div className={s.inputWrap}>
+          <label className={s.label}>Адреса</label>
+          <input className={s.input} value={address} onChange={HandleAddress}></input>
+          </div>
+          <div className={s.inputWrap}>
+          <label className={s.label}>Телефон</label>
+          <input className={s.input} value={phone} onChange={HandlePhone}></input>
+          </div>
+          <button type="submit" onClick={onSubmit} className={s.button}>Підтвердити</button>
+          </form>}
+       
       </div>
     </div>
   );
