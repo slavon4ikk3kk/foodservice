@@ -43,3 +43,37 @@
   right: 10px;
   background-color: white;
 }
+.label{
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 15px;
+  
+  
+}
+
+.titleLabel.titleLabel{
+  font-size: 44px;
+  font-family: "Nimbus", "sans-serif";
+  font-weight: 500;
+  
+}
+.span{
+  font-style: italic;
+  font-size: 30px;
+  font-weight: 600;
+}
+.titleLabel{
+  font-size: 5px;
+}
+.labelContainer{
+  padding: 0 40px;
+}
+.shopwithus{
+  font-family: "Nimbus", "sans-serif";
+  font-size: 21px;
+  text-align: center;
+  margin-top: 15px;
+}

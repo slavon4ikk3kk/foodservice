@@ -35,6 +35,12 @@ const Cabinet = () => {
           </div>
         </div>
       )}
+      <div className={s.labelContainer}>
+      <div className={s.label}>
+        <p className={s.titleLabel}>GOOD <span className={s.span}>to</span> EAT</p>
+      </div>
+      </div>
+      <p className={s.shopwithus}>- SHOP WITH US -</p>
       <ul className={s.list}>
         {Dishes.map((dish) => {
           return (

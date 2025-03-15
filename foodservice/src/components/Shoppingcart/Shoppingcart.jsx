@@ -26,6 +26,11 @@ const ShoppingCart = ({
   }, 0);
 
   async function onSubmit() {
+    let validMessage = `Зроблено замовлення: `;
+    productsList.forEach(product => {
+       validMessage += `\n${dishes.find((dish) => {return product.id === dish.id}).name}, Кількість товару: ${product.amount}`;
+    });
+    validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
     setSuccessModal(true);
     setProductsList([]);
     setisOpen(false);
@@ -33,7 +38,7 @@ const ShoppingCart = ({
     try {
       await axios.post(apiUrl, {
         chat_id: chatId,
-        text: "відправка",
+        text: validMessage,
       });
       console.log("Повідомлення надіслано!");
     } catch (error) {
