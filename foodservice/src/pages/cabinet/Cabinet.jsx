@@ -24,9 +24,10 @@ const Cabinet = () => {
           productsList={productsList}
           setProductsList={setProductsList}
           setSuccessModal={setSuccessModal}
+          successModal={successModal}
         />
       )}
-      {successModal && <Success setSuccessModal={setSuccessModal} />}
+
       <ul className={s.list}>
         {Dishes.map((dish) => {
           return (

@@ -3,20 +3,15 @@ import s from "./Shoppingcart.module.css";
 import images from "../../assets/index";
 import dishes from "../../Data/dishes.jsx";
 import ShoppingcartItem from "./ShoppingcartItem";
-import axios from "axios";
 
-const botToken =
-  process.env.REACT_APP_TELEGRAM_BOT_TOKEN ||
-  import.meta.env.REACT_APP_TELEGRAM_BOT_TOKEN;
-const chatId =
-  process.env.REACT_APP_TELEGRAM_CHAT_ID ||
-  import.meta.env.REACT_APP_TELEGRAM_CHAT_ID;
+import Success from "../Success/Success";
 
 const ShoppingCart = ({
   setProductsList,
   productsList,
   setisOpen,
   setSuccessModal,
+  successModal,
 }) => {
   const totalCost = productsList.reduce((sum, product) => {
     const currentPrice = dishes.find((dish) => {
@@ -26,24 +21,7 @@ const ShoppingCart = ({
   }, 0);
 
   async function onSubmit() {
-    let validMessage = `Зроблено замовлення: `;
-    productsList.forEach(product => {
-       validMessage += `\n${dishes.find((dish) => {return product.id === dish.id}).name}, Кількість товару: ${product.amount}`;
-    });
-    validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
     setSuccessModal(true);
-    setProductsList([]);
-    setisOpen(false);
-    const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-    try {
-      await axios.post(apiUrl, {
-        chat_id: chatId,
-        text: validMessage,
-      });
-      console.log("Повідомлення надіслано!");
-    } catch (error) {
-      console.error("Помилка відправки:", error);
-    }
   }
 
   return (
@@ -86,6 +64,15 @@ const ShoppingCart = ({
           Зробити замовлення
         </button>
       </div>
+      {successModal && (
+        <Success
+          setSuccessModal={setSuccessModal}
+          productsList={productsList}
+          setProductsList={setProductsList}
+          setisOpen={setisOpen}
+          totalCost={totalCost}
+        />
+      )}
     </div>
   );
 };
