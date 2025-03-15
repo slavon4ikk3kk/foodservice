@@ -31,6 +31,7 @@ const Success = ({
         }, Кількість товару: ${product.amount}`;
     });
     validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
+    validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
     setSuccessModal(true);
     setProductsList([]);
 
