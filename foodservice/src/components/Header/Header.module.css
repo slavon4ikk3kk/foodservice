@@ -29,6 +29,9 @@
 }
 .bagWrap {
   position: relative;
+  width: 70px;
+  display: flex;
+  justify-content: center;
 }
 .logo {
   position: relative;
@@ -37,17 +40,17 @@
   width: 70px;
   height: 70px;
 }
-.title{
+.title {
   font-family: "Sigmar";
   font-weight: 400;
   font-size: 30px;
   color: black;
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
-.icons{
+.icons {
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -4,7 +4,8 @@ import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
 import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
-import images from "../../assets/index.js"
+import images from "../../assets/index.js";
+import Success from "../../components/Success/Success";
 const Cabinet = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [productsList, setProductsList] = useState(() => {
@@ -25,22 +26,7 @@ const Cabinet = () => {
           setSuccessModal={setSuccessModal}
         />
       )}
-      {successModal && (
-        <div className={s.successModal}>
-          <div className={s.successModalWrap}>
-            <button className={s.buttonClose} onClick={() => {setSuccessModal(false)}}><img src={images.close} className={s.close}></img></button>
-            <p className={s.successModalText}>
-              Замовлення було успішно прийняте!
-            </p>
-          </div>
-        </div>
-      )}
-      <div className={s.labelContainer}>
-      <div className={s.label}>
-        <p className={s.titleLabel}>GOOD <span className={s.span}>to</span> EAT</p>
-      </div>
-      </div>
-      <p className={s.shopwithus}>- SHOP WITH US -</p>
+      {successModal && <Success setSuccessModal={setSuccessModal} />}
       <ul className={s.list}>
         {Dishes.map((dish) => {
           return (
