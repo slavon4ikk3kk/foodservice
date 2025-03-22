@@ -70,20 +70,51 @@ const Success = ({
         </button>
         {isConfirmAddress ?  <p className={s.successModalText}>Замовлення було успішно прийняте!</p> : 
         <form className={s.form}>
-          <div className={s.inputWrap}>
+        <div className={s.inputWrap}>
           <label className={s.label}>Повне ім'я</label>
-          <input className={s.input} value={name} onChange={HandleName}></input>
+          <div className={s.inputContainer}>
+            <img src={images.person} className={s.icon} />
+            <input 
+              className={s.input} 
+              value={name} 
+              onChange={HandleName} 
+              pattern="[A-Za-z ]{1,32}" 
+               
+            />
           </div>
-          <div className={s.inputWrap}>
+        </div>
+        
+        <div className={s.inputWrap}>
           <label className={s.label}>Адреса</label>
-          <input className={s.input} value={address} onChange={HandleAddress}></input>
+          <div className={s.inputContainer}>
+            <img src={images.address} className={s.icon} />
+            <input 
+              className={s.input} 
+              value={address} 
+              onChange={HandleAddress} 
+              pattern="(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" 
+             
+            />
           </div>
-          <div className={s.inputWrap}>
+        </div>
+      
+        <div className={s.inputWrap}>
           <label className={s.label}>Телефон</label>
-          <input className={s.input} value={phone} onChange={HandlePhone}></input>
+          <div className={s.inputContainer}>
+            <img src={images.phone} className={s.icon} />
+            <input 
+              className={s.input} 
+              value={phone} 
+              onChange={HandlePhone} 
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+               
+            />
           </div>
-          <button type="submit" onClick={onSubmit} className={s.button}>Підтвердити</button>
-          </form>}
+        </div>
+      
+        <button type="submit" onClick={onSubmit} className={s.button}>Підтвердити</button>
+      </form>
+      }
        
       </div>
     </div>

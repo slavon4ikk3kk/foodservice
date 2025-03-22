@@ -59,6 +59,7 @@
   font-weight: normal;
   text-decoration: none;
   font-family: "Poppins", "sans-serif";
+  text-indent: 30px;
 }
 .button{
   display: flex;
@@ -74,5 +75,17 @@
   background-color: #e2705a;
   padding: 6px;
   color: white;
+  width: 100%;
+}
+.icon{
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 7px;  
+  top: 50%;
+  transform: translateY(-50%);
+}
+.inputContainer {
+  position: relative;
   width: 100%;
 }
