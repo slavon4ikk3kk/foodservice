@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/foodservice/static/css/main.7c627744.css",
-    "main.js": "/foodservice/static/js/main.1b4a72a1.js",
+    "main.js": "/foodservice/static/js/main.91314614.js",
     "static/media/paper.jpg": "/foodservice/static/media/paper.00bea0908e51503f8283.jpg",
     "static/media/zraziMushrooms.jpg": "/foodservice/static/media/zraziMushrooms.da7fe47c24d81590c2a9.jpg",
     "static/media/hek.jpg": "/foodservice/static/media/hek.7911dd786db0beef8161.jpg",
@@ -22,10 +22,10 @@
     "static/media/burger-menu.svg": "/foodservice/static/media/burger-menu.fc12fbd678bea2ce4ec9524cbe12a170.svg",
     "static/media/person.svg": "/foodservice/static/media/person.71ccddd48c84f2b0c1118524c3689552.svg",
     "main.7c627744.css.map": "/foodservice/static/css/main.7c627744.css.map",
-    "main.1b4a72a1.js.map": "/foodservice/static/js/main.1b4a72a1.js.map"
+    "main.91314614.js.map": "/foodservice/static/js/main.91314614.js.map"
   },
   "entrypoints": [
     "static/css/main.7c627744.css",
-    "static/js/main.1b4a72a1.js"
+    "static/js/main.91314614.js"
   ]
 }
