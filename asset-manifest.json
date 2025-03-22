@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/foodservice/static/css/main.7c627744.css",
+    "main.js": "/foodservice/static/js/main.1b4a72a1.js",
+    "static/media/paper.jpg": "/foodservice/static/media/paper.00bea0908e51503f8283.jpg",
+    "static/media/zraziMushrooms.jpg": "/foodservice/static/media/zraziMushrooms.da7fe47c24d81590c2a9.jpg",
+    "static/media/hek.jpg": "/foodservice/static/media/hek.7911dd786db0beef8161.jpg",
+    "static/media/kyivski.jpg": "/foodservice/static/media/kyivski.cfae7e1efe4b454b69cd.jpg",
+    "static/media/dublings.jpg": "/foodservice/static/media/dublings.db33aa5c76d1c0894699.jpg",
+    "static/media/holubsi.jpg": "/foodservice/static/media/holubsi.ab1ad2fe1bb415b365ce.jpg",
+    "static/media/pancakes.jpg": "/foodservice/static/media/pancakes.8bd94a5ab4ac26a267f1.jpg",
+    "static/media/pancakesMushroom.jpg": "/foodservice/static/media/pancakesMushroom.7bd57e728ae5e8fc7a50.jpg",
+    "static/media/pancakesCheese.jpg": "/foodservice/static/media/pancakesCheese.834216492d61f43df2f4.jpg",
+    "static/media/zraziMeat.jpg": "/foodservice/static/media/zraziMeat.e87f6077c4f199bb721a.jpg",
+    "static/media/food.svg": "/foodservice/static/media/food.0b30481dd627a522fba6a778fec02748.svg",
+    "static/media/bin.jpg": "/foodservice/static/media/bin.6dd00c76d9cffa041cbc.jpg",
+    "static/media/phone.svg": "/foodservice/static/media/phone.333beeda82c0cc6a5df69f6a54521027.svg",
+    "static/media/address.svg": "/foodservice/static/media/address.88e9229bca0db7d9a539772a289fed4f.svg",
+    "static/media/close.svg": "/foodservice/static/media/close.2791559aacff61e43e9830e6e86fe5c2.svg",
+    "index.html": "/foodservice/index.html",
+    "static/media/garbage.svg": "/foodservice/static/media/garbage.27bc6cb8e907a63c420d6fedfaa59f3f.svg",
+    "static/media/burger-menu.svg": "/foodservice/static/media/burger-menu.fc12fbd678bea2ce4ec9524cbe12a170.svg",
+    "static/media/person.svg": "/foodservice/static/media/person.71ccddd48c84f2b0c1118524c3689552.svg",
+    "main.7c627744.css.map": "/foodservice/static/css/main.7c627744.css.map",
+    "main.1b4a72a1.js.map": "/foodservice/static/js/main.1b4a72a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c627744.css",
+    "static/js/main.1b4a72a1.js"
+  ]
+}
