@@ -87,7 +87,7 @@ const Success = ({
               <a
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                href="https://send.monobank.ua/jar/8acj3csxDW"
+                href="#"
               >
                 Посилання на оплату
               </a>
