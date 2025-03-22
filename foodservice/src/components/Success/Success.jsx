@@ -37,10 +37,8 @@ const Success = ({
     validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
     // setSuccessModal(true);
-    setIsConfirmAddress(true);
-    setProductsList([]);
 
-    const apiUrl = `https://api.telegram.org/bot${""}/sendMessage`;
+    const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     try {
       await axios.post(apiUrl, {
         chat_id: chatId,
@@ -48,12 +46,15 @@ const Success = ({
       });
       Notify.success("Заявка успішно відправлена", {
         timeout: 3000,
-      })
+      });
+      setProductsList([]);
+      setIsConfirmAddress(true);
     } catch (error) {
+      console.log("помилка");
       Notify.failure("Сталася помилка", {
-        timeout: 3000
-      })
-      setIsConfirmAddress(false)
+        timeout: 3000,
+      });
+      setIsConfirmAddress(false);
     }
   }
   function HandleName(e) {
@@ -140,7 +141,6 @@ const Success = ({
             <button type="submit" onClick={onSubmit} className={s.button}>
               Підтвердити
             </button>
-            
           </form>
         )}
       </div>
