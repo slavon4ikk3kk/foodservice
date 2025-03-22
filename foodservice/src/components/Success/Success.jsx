@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import s from "./Success.module.css";
 import images from "../../assets/index";
 import axios from "axios";
@@ -11,7 +11,6 @@ const chatId =
   import.meta.env.REACT_APP_TELEGRAM_CHAT_ID;
 
 const Success = ({
-
   setSuccessModal,
   productsList,
   setProductsList,
@@ -22,17 +21,21 @@ const Success = ({
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  async function onSubmit() {
+  console.log(window);
+  async function onSubmit(e) {
+    e.preventDefault();
     let validMessage = `Зроблено замовлення: `;
     productsList.forEach((product) => {
-      validMessage += `\n${dishes.find((dish) => {
-        return product.id === dish.id;
-      }).name
-        }, Кількість товару: ${product.amount}`;
+      validMessage += `\n${
+        dishes.find((dish) => {
+          return product.id === dish.id;
+        }).name
+      }, Кількість товару: ${product.amount}`;
     });
     validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
-    setSuccessModal(true);
+    // setSuccessModal(true);
+    setIsConfirmAddress(true);
     setProductsList([]);
 
     const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -46,13 +49,13 @@ const Success = ({
       console.error("Помилка відправки:", error);
     }
   }
-  function HandleName(e){
-         setName(e.target.value);
+  function HandleName(e) {
+    setName(e.target.value);
   }
-  function HandleAddress(e){
+  function HandleAddress(e) {
     setAddress(e.target.value);
   }
-  function HandlePhone(e){
+  function HandlePhone(e) {
     setPhone(e.target.value);
   }
 
@@ -68,54 +71,71 @@ const Success = ({
         >
           <img src={images.close} className={s.close}></img>
         </button>
-        {isConfirmAddress ?  <p className={s.successModalText}>Замовлення було успішно прийняте!</p> : 
-        <form className={s.form}>
-        <div className={s.inputWrap}>
-          <label className={s.label}>Повне ім'я</label>
-          <div className={s.inputContainer}>
-            <img src={images.person} className={s.icon} />
-            <input 
-              className={s.input} 
-              value={name} 
-              onChange={HandleName} 
-              pattern="[A-Za-z ]{1,32}" 
-               
-            />
-          </div>
-        </div>
-        
-        <div className={s.inputWrap}>
-          <label className={s.label}>Адреса</label>
-          <div className={s.inputContainer}>
-            <img src={images.address} className={s.icon} />
-            <input 
-              className={s.input} 
-              value={address} 
-              onChange={HandleAddress} 
-              pattern="(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" 
-             
-            />
-          </div>
-        </div>
-      
-        <div className={s.inputWrap}>
-          <label className={s.label}>Телефон</label>
-          <div className={s.inputContainer}>
-            <img src={images.phone} className={s.icon} />
-            <input 
-              className={s.input} 
-              value={phone} 
-              onChange={HandlePhone} 
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-               
-            />
-          </div>
-        </div>
-      
-        <button type="submit" onClick={onSubmit} className={s.button}>Підтвердити</button>
-      </form>
-      }
-       
+        {isConfirmAddress ? (
+          <>
+            <p className={s.successModalText}>
+              Замовлення було успішно прийняте!
+            </p>
+            <button>
+              <a
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className={s.successModalText}
+                href="https://send.monobank.ua/jar/8acj3csxDW"
+              >
+                Посилання на оплату
+              </a>
+            </button>
+          </>
+        ) : (
+          <form className={s.form}>
+            <div className={s.inputWrap}>
+              <label className={s.label}>Повне ім'я</label>
+              <div className={s.inputContainer}>
+                <img src={images.person} className={s.icon} />
+                <input
+                  className={s.input}
+                  value={name}
+                  onChange={HandleName}
+                  pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+([-\s][A-Za-zА-Яа-яЁёІіЇїЄєҐґ]+)*"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className={s.inputWrap}>
+              <label className={s.label}>Адреса</label>
+              <div className={s.inputContainer}>
+                <img src={images.address} className={s.icon} />
+                <input
+                  className={s.input}
+                  value={address}
+                  onChange={HandleAddress}
+                  pattern="[A-Za-zА-Яа-яЁёІіЇїЄєҐґ0-9\s,.-/]+"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className={s.inputWrap}>
+              <label className={s.label}>Телефон</label>
+              <div className={s.inputContainer}>
+                <img src={images.phone} className={s.icon} />
+                <input
+                  className={s.input}
+                  value={phone}
+                  onChange={HandlePhone}
+                  pattern="0\d{2}(-?\d{3})(-?\d{2})(-?\d{2})"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" onClick={onSubmit} className={s.button}>
+              Підтвердити
+            </button>
+          </form>
+        )}
       </div>
     </div>
   );
