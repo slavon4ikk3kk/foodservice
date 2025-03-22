@@ -3,6 +3,7 @@ import s from "./Success.module.css";
 import images from "../../assets/index";
 import axios from "axios";
 import dishes from "../../Data/dishes";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 const botToken =
   process.env.REACT_APP_TELEGRAM_BOT_TOKEN ||
   import.meta.env.REACT_APP_TELEGRAM_BOT_TOKEN;
@@ -22,6 +23,7 @@ const Success = ({
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   console.log(window);
+
   async function onSubmit(e) {
     e.preventDefault();
     let validMessage = `Зроблено замовлення: `;
@@ -38,15 +40,20 @@ const Success = ({
     setIsConfirmAddress(true);
     setProductsList([]);
 
-    const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    const apiUrl = `https://api.telegram.org/bot${""}/sendMessage`;
     try {
       await axios.post(apiUrl, {
         chat_id: chatId,
         text: validMessage,
       });
-      console.log("Повідомлення надіслано!");
+      Notify.success("Заявка успішно відправлена", {
+        timeout: 3000,
+      })
     } catch (error) {
-      console.error("Помилка відправки:", error);
+      Notify.failure("Сталася помилка", {
+        timeout: 3000
+      })
+      setIsConfirmAddress(false)
     }
   }
   function HandleName(e) {
@@ -76,11 +83,10 @@ const Success = ({
             <p className={s.successModalText}>
               Замовлення було успішно прийняте!
             </p>
-            <button>
+            <button className={`${s.buttonPayment} ${s.button}`}>
               <a
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className={s.successModalText}
                 href="https://send.monobank.ua/jar/8acj3csxDW"
               >
                 Посилання на оплату
@@ -134,6 +140,7 @@ const Success = ({
             <button type="submit" onClick={onSubmit} className={s.button}>
               Підтвердити
             </button>
+            
           </form>
         )}
       </div>
