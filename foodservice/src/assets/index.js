@@ -13,7 +13,6 @@ import zraziMeat from "./zraziMeat.jpg";
 import zraziMushrooms from "./zraziMushrooms.jpg";
 import dublings from "./dublings.jpg";
 import bin from "./bin.jpg";
-import logo from "./food.svg";
 import person from "./person.svg";
 import phone from "./phone.svg";
 import address from "./address.svg";
@@ -35,7 +34,7 @@ export default {
   zraziMushrooms,
   dublings,
   bin,
-  logo,
+
   person,
   phone,
   address

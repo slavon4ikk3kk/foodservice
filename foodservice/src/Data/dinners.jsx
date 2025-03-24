@@ -60,3 +60,4 @@ const dinners = [
       ],
     },
   ];
+  export default dinners
