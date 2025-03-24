@@ -1,8 +1,20 @@
-import Cabinet from "./pages/cabinet/Cabinet.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cabinet from "./pages/cabinet/Cabinet";
+import Dinners from "./pages/dinners/Dinners";
+
+
 function App() {
   return (
-    <div className="App">
-     <Cabinet></Cabinet>
+    <div>
+      <Router>
+        
+          
+          <Routes>
+            <Route path="/*" element={<Cabinet />} />
+            <Route path="/dinners" element={<Dinners />} />
+          </Routes>
+        
+      </Router>
     </div>
   );
 }
