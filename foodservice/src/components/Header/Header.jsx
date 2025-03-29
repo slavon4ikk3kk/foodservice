@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import images from "../../assets/index";
 import s from "./Header.module.css";
 
@@ -9,21 +9,6 @@ const Header = ({ productsList, setisOpen }) => {
   const toggleMenu = () => {
     setOpenMenu((prev) => !prev);
   };
-
-  const closeMenu = (e) => {
-    if (!e.target.closest(`.${s.dropdownMenu}`) && !e.target.closest(`.${s.logo}`)) {
-      setOpenMenu(false);
-    }
-  };
-
-  useEffect(() => {
-    if (openMenu) {
-      document.addEventListener("click", closeMenu);
-    } else {
-      document.removeEventListener("click", closeMenu);
-    }
-    return () => document.removeEventListener("click", closeMenu);
-  }, [openMenu]);
 
   return (
     <header className={s.header}>
@@ -46,8 +31,13 @@ const Header = ({ productsList, setisOpen }) => {
         </p>
       </div>
       <p className={s.title}>Food Service</p>
-      <button onClick={toggleMenu}>
-        <img className={s.logo} src={images.logo} alt="logo" />
+      <button
+        type="button"
+        onClick={() => {
+          setOpenMenu(true);
+        }}
+      >
+        <img className={s.logo} src={images.close} alt="logo" />
       </button>
       {openMenu && (
         <div className={s.dropdownMenu}>

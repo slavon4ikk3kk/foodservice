@@ -4,20 +4,15 @@ import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
 import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
-import images from "../../assets/index.js";
-import Success from "../../components/Success/Success";
-const Cabinet = () => {
+
+const Cabinet = ({ productsList, setProductsList, setisOpen, isOpen }) => {
   const [successModal, setSuccessModal] = useState(false);
-  const [productsList, setProductsList] = useState(() => {
-    return JSON.parse(localStorage.getItem("products")) || [];
-  });
-  const [isOpen, setisOpen] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productsList));
   }, [productsList]);
   return (
     <div style={{ padding: "90px 0" }} className="container">
-      <Header setisOpen={setisOpen} productsList={productsList} />
       {isOpen && (
         <ShoppingCart
           setisOpen={setisOpen}
