@@ -1,5 +1,4 @@
-import { BrowserRouter as Routes, Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cabinet from "./pages/cabinet/Cabinet";
 import Dinners from "./pages/dinners/Dinners";
 import { useState } from "react";
@@ -10,8 +9,9 @@ function App() {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
   const [isOpen, setisOpen] = useState(false);
+
   return (
-    <BrowserRouter>
+    <Router>
       <div>
         <Header setisOpen={setisOpen} productsList={productsList} />
 
@@ -20,6 +20,8 @@ function App() {
             path="/*"
             element={
               <Cabinet
+                setisOpen={setisOpen}
+                isOpen={isOpen}
                 setProductsList={setProductsList}
                 productsList={productsList}
               />
@@ -36,7 +38,7 @@ function App() {
           />
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 

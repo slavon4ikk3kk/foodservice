@@ -23,7 +23,7 @@ const ShoppingcartItem = ({
     setProductsList((prev) => {
       const newList = prev.map((bagItem) => {
         if (bagItem.id === currentDish.id) {
-          return { id: bagItem.id, amount: amount };
+          return { id: bagItem.id, amount: amount, isDinner: bagItem.isDinner };
         }
         return bagItem;
       });
@@ -37,10 +37,9 @@ const ShoppingcartItem = ({
       return newList;
     });
   }
-  
+
   return (
     <li className={s.cartList}>
-      
       <img src={currentDish.image} className={s.currentImg}></img>
       <div className={s.rightSide}>
         <div className={s.names}>
@@ -75,7 +74,6 @@ const ShoppingcartItem = ({
           <p>{currentDish.price * amount}₴</p>
         </div>
       </div>
-  
     </li>
   );
 };

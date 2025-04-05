@@ -22,7 +22,6 @@ const Success = ({
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  console.log(window);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -85,11 +84,7 @@ const Success = ({
               Замовлення було успішно прийняте!
             </p>
             <button className={`${s.buttonPayment} ${s.button}`}>
-              <a
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                href="#"
-              >
+              <a target="_blank" rel="noopener noreferrer nofollow" href="#">
                 Посилання на оплату
               </a>
             </button>

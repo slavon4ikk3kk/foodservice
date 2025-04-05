@@ -65,8 +65,7 @@ const Dinners = () => {
     e.preventDefault();
     const dayIndex = e.target.dataset.index;
     const pickedDayItems = dinners[dayIndex].items;
-    // console.log(pickedDayItems);
-    // console.log(e.target.elements);
+
     const userCard = [];
     const inputs = e.target.elements;
     for (const [index, el] of [...inputs].entries()) {

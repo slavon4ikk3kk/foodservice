@@ -42,8 +42,20 @@ const Header = ({ productsList, setisOpen }) => {
       {openMenu && (
         <div className={s.dropdownMenu}>
           <ul>
-            <Link to={"/*"}>Напівфабрикати</Link>
-            <Link to={"/dinners"}>Комплексні обіди</Link>
+            <li
+              onClick={() => {
+                setOpenMenu(false);
+              }}
+            >
+              <Link to={"/*"}>Напівфабрикати</Link>
+            </li>
+            <li
+              onClick={() => {
+                setOpenMenu(false);
+              }}
+            >
+              <Link to={"/dinners"}>Комплексні обіди</Link>
+            </li>
           </ul>
         </div>
       )}
