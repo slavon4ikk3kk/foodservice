@@ -2,16 +2,26 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import images from "../../assets/index";
 import s from "./Header.module.css";
+import ShoppingCart from "../Shoppingcart/Shoppingcart";
 
-const Header = ({ productsList, setisOpen }) => {
+const Header = ({ productsList, setisOpen, isOpen, setProductsList }) => {
   const [openMenu, setOpenMenu] = useState(false);
-
+  const [successModal, setSuccessModal] = useState(false);
   const toggleMenu = () => {
     setOpenMenu((prev) => !prev);
   };
 
   return (
     <header className={s.header}>
+      {isOpen && (
+        <ShoppingCart
+          setisOpen={setisOpen}
+          productsList={productsList}
+          setProductsList={setProductsList}
+          setSuccessModal={setSuccessModal}
+          successModal={successModal}
+        />
+      )}
       <div className={s.bagWrap}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

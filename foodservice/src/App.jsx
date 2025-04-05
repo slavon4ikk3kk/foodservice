@@ -13,7 +13,12 @@ function App() {
   return (
     <Router>
       <div>
-        <Header setisOpen={setisOpen} productsList={productsList} />
+        <Header
+          setisOpen={setisOpen}
+          productsList={productsList}
+          isOpen={isOpen}
+          setProductsList={setProductsList}
+        />
 
         <Routes>
           <Route

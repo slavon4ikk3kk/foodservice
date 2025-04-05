@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Header from "../../components/Header/Header";
 import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
 
-const Cabinet = ({ productsList, setProductsList, setisOpen, isOpen }) => {
-  const [successModal, setSuccessModal] = useState(false);
-
+const Cabinet = ({ productsList, setProductsList }) => {
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productsList));
   }, [productsList]);
   return (
     <div style={{ padding: "90px 0" }} className="container">
-      {isOpen && (
-        <ShoppingCart
-          setisOpen={setisOpen}
-          productsList={productsList}
-          setProductsList={setProductsList}
-          setSuccessModal={setSuccessModal}
-          successModal={successModal}
-        />
-      )}
-
       <ul className={s.list}>
         {Dishes.map((dish) => {
           return (

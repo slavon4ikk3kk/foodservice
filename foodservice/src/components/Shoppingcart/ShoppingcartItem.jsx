@@ -37,43 +37,49 @@ const ShoppingcartItem = ({
       return newList;
     });
   }
-
+  console.log(currentDish);
   return (
     <li className={s.cartList}>
-      <img src={currentDish.image} className={s.currentImg}></img>
-      <div className={s.rightSide}>
-        <div className={s.names}>
-          <p>{currentDish.name}</p>
-          <button onClick={onDelete} className={s.binButton}>
-            <img src={images.bin} className={s.bin}></img>
-          </button>
-        </div>
-        <p>{currentDish.price}₴</p>
-        <div className={s.totalProducts}>
-          <div className={s.inputWrap}>
-            <button onClick={handlePlus} className={s.plus} type="button">
-              +
-            </button>
-            <button
-              style={{ color: amount === 0 ? "gray" : "black" }}
-              onClick={handleMinus}
-              className={s.minus}
-              type="button"
-            >
-              -
-            </button>
-            <input
-              type="number"
-              step={0.5}
-              onChange={HandleAmountChange}
-              value={amount}
-              min={0}
-              className={s.input}
-            ></input>
+      {currentDish ? (
+        <>
+          <img src={currentDish.image} className={s.currentImg}></img>
+          <div className={s.rightSide}>
+            <div className={s.names}>
+              <p>{currentDish.name}</p>
+              <button onClick={onDelete} className={s.binButton}>
+                <img src={images.bin} className={s.bin}></img>
+              </button>
+            </div>
+            <p>{currentDish.price}₴</p>
+            <div className={s.totalProducts}>
+              <div className={s.inputWrap}>
+                <button onClick={handlePlus} className={s.plus} type="button">
+                  +
+                </button>
+                <button
+                  style={{ color: amount === 0 ? "gray" : "black" }}
+                  onClick={handleMinus}
+                  className={s.minus}
+                  type="button"
+                >
+                  -
+                </button>
+                <input
+                  type="number"
+                  step={0.5}
+                  onChange={HandleAmountChange}
+                  value={amount}
+                  min={0}
+                  className={s.input}
+                ></input>
+              </div>
+              <p>{currentDish.price * amount}₴</p>
+            </div>
           </div>
-          <p>{currentDish.price * amount}₴</p>
-        </div>
-      </div>
+        </>
+      ) : (
+        "dinner"
+      )}
     </li>
   );
 };
