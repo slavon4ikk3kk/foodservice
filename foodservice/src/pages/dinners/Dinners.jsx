@@ -1,6 +1,7 @@
 import React from "react";
 import dinners from "../../Data/dinners";
 import s from "./Dinners.module.css";
+import { data } from "react-router-dom";
 
 const months = [
   "Січень",
@@ -25,7 +26,7 @@ const days = [
   "П’ятниця",
   "Субота",
 ];
-const Dinners = () => {
+const Dinners = ({setProductsList}) => {
   const dateArray = [];
   const currentDay = new Date();
   currentDay.setMonth(9);
@@ -64,6 +65,7 @@ const Dinners = () => {
   function handleSubmit(e) {
     e.preventDefault();
     const dayIndex = e.target.dataset.index;
+    const dayDate = e.target.dataset.date;
     const pickedDayItems = dinners[dayIndex].items;
 
     const userCard = [];
@@ -73,6 +75,10 @@ const Dinners = () => {
         userCard.push(pickedDayItems[index]);
       }
     }
+    setProductsList((prev)=>{
+      return [...prev, {isDinner: true, dishes: userCard, date: dayDate}] 
+    })
+
     console.log(userCard);
   }
   return (
