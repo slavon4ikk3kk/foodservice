@@ -37,7 +37,7 @@
   transform: translateY(-50%);
   right: 10px;
   background-color: transparent;
-  font-size: 25px;
+  height: 24px;
 }
 .minus {
   position: absolute;
@@ -45,7 +45,7 @@
   transform: translateY(-50%);
   left: 10px;
   background-color: transparent;
-  font-size: 25px;
+  height: 24px;
 }
 .totalPrice {
   text-align: left;

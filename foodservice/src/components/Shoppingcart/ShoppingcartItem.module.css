@@ -16,7 +16,7 @@
   align-items: center;
   gap: 10px;
   position: relative;
-  max-width: 300px;
+  max-width: 320px;
   width: 78px;
 }
 .rightSide {
@@ -31,9 +31,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 55px;
+  right: 3px;
   background-color: transparent;
-  font-size: 25px;
+  height: 24px;
   cursor: pointer;
 }
 
@@ -41,9 +41,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 55px;
+  left: 3px;
   background-color: transparent;
-  font-size: 25px;
+  height: 24px;
   cursor: pointer;
 }
 

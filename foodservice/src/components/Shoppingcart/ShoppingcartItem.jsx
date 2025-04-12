@@ -7,6 +7,7 @@ const ShoppingcartItem = ({
   setProductsList,
 }) => {
   const [amount, setAmount] = useState(storedAmount);
+
   function HandleAmountChange(e) {
     setAmount(e.target.value);
   }
@@ -20,6 +21,7 @@ const ShoppingcartItem = ({
     setAmount(amount - 1);
   }
   useEffect(() => {
+    console.log(currentDish);
     setProductsList((prev) => {
       const newList = prev.map((bagItem) => {
         if (bagItem.id === currentDish.id) {
@@ -54,7 +56,18 @@ const ShoppingcartItem = ({
             <div className={s.totalProducts}>
               <div className={s.inputWrap}>
                 <button onClick={handlePlus} className={s.plus} type="button">
-                  +
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    width="24"
+                    height="24"
+                    class="sTccf4a"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M13,5 L13,12 L20,12 L20,13 L13,13 L13,20 L12,20 L11.999,13 L5,13 L5,12 L12,12 L12,5 L13,5 Z"
+                    ></path>
+                  </svg>
                 </button>
                 <button
                   style={{ color: amount === 0 ? "gray" : "black" }}
@@ -62,7 +75,18 @@ const ShoppingcartItem = ({
                   className={s.minus}
                   type="button"
                 >
-                  -
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    width="24"
+                    height="24"
+                    class="sTccf4a"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M20,12 L20,13 L5,13 L5,12 L20,12 Z"
+                    ></path>
+                  </svg>
                 </button>
                 <input
                   type="number"

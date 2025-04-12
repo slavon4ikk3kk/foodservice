@@ -27,13 +27,21 @@ const Success = ({
     e.preventDefault();
     let validMessage = `Зроблено замовлення: `;
     productsList.forEach((product) => {
-      validMessage += `\n${
-        dishes.find((dish) => {
-          return product.id === dish.id;
-        }).name
-      }, Кількість товару: ${product.amount}`;
+      if (product.isDinner === true) {
+        validMessage += `\n\n${product.date},${product.dishes.map((dish) => {
+          return `\n${dish.name}`;
+        })},\nЗагалом: ${product.dishes.reduce((acc, dish) => {
+          return acc + dish.price;
+        }, 0)}$ `;
+      } else {
+        validMessage += `\n\n${
+          dishes.find((dish) => {
+            return product.id === dish.id;
+          }).name
+        }, Кількість товару: ${product.amount}`;
+      }
     });
-    validMessage += `\nЗагальна ціна замовлення: ${totalCost} грн`;
+    validMessage += `\n\nЗагальна ціна замовлення: ${totalCost} грн`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
     // setSuccessModal(true);
 

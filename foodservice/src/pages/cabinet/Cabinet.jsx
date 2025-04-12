@@ -6,9 +6,6 @@ import Dishes from "../../Data/dishes.jsx";
 import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
 
 const Cabinet = ({ productsList, setProductsList }) => {
-  useEffect(() => {
-    localStorage.setItem("products", JSON.stringify(productsList));
-  }, [productsList]);
   return (
     <div style={{ padding: "90px 0" }} className="container">
       <ul className={s.list}>

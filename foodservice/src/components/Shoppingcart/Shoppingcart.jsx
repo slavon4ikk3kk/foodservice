@@ -5,6 +5,7 @@ import dishes from "../../Data/dishes.jsx";
 import ShoppingcartItem from "./ShoppingcartItem";
 
 import Success from "../Success/Success";
+import DinnerItem from "./DinnerItem";
 
 const ShoppingCart = ({
   setProductsList,
@@ -13,21 +14,21 @@ const ShoppingCart = ({
   setSuccessModal,
   successModal,
 }) => {
-  // const totalCost = productsList.reduce((sum, product) => {
-  //   console.log(product);
-  //   if (product.isDinner) {
-  //     const sumDishes = product.dishes.reduce((acc, dish) => {
-  //       return acc + dish.price;
-  //     }, 0);
-  //     return sum + sumDishes;
-  //   }
-  //   const currentPrice = dishes.find((dish) => {
-  //     return product.id === dish.id;
-  //   });
-  //   return sum + product.amount * currentPrice.price;
-  // }, 0);
+  const totalCost = productsList.reduce((sum, product) => {
+    console.log(product);
+    if (product.isDinner) {
+      const sumDishes = product.dishes.reduce((acc, dish) => {
+        return acc + dish.price;
+      }, 0);
+      return sum + sumDishes;
+    }
+    const currentPrice = dishes.find((dish) => {
+      return product.id === dish.id;
+    });
+    return sum + product.amount * currentPrice.price;
+  }, 0);
 
-  async function onSubmit() {
+  function onSubmit() {
     setSuccessModal(true);
   }
 
@@ -48,14 +49,17 @@ const ShoppingCart = ({
         />
       </div>
       <ul className={s.purchaseList}>
-        {productsList.map((product) => {
+        {[...productsList].map((product) => {
+          if (product.isDinner === true) {
+            return <DinnerItem dinner={product} />;
+          }
           const currentDish = dishes.find((dish) => {
             return product.id === dish.id;
           });
 
           return (
             <ShoppingcartItem
-              currentDish={currentDish ? currentDish : false}
+              currentDish={currentDish}
               amount={product.amount}
               setProductsList={setProductsList}
             />
@@ -65,7 +69,7 @@ const ShoppingCart = ({
       <div className={s.totalCostContainer}>
         <div className={s.totalCost}>
           <p>Загальна ціна:</p>
-          <span>{7}₴</span>
+          <span>{totalCost}₴</span>
         </div>
         <button className={s.button} onClick={onSubmit}>
           Зробити замовлення
@@ -77,7 +81,7 @@ const ShoppingCart = ({
           productsList={productsList}
           setProductsList={setProductsList}
           setisOpen={setisOpen}
-          // totalCost={totalCost}
+          totalCost={totalCost}
         />
       )}
     </div>

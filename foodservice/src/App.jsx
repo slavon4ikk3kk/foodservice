@@ -1,15 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cabinet from "./pages/cabinet/Cabinet";
 import Dinners from "./pages/dinners/Dinners";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 
 function App() {
   const [productsList, setProductsList] = useState(() => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
-  const [isOpen, setisOpen] = useState(false);
 
+  const [isOpen, setisOpen] = useState(false);
+  useEffect(() => {
+    localStorage.setItem("products", JSON.stringify(productsList));
+  }, [productsList]);
   return (
     <Router>
       <div>
