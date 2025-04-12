@@ -1,0 +1,33 @@
+.title{
+    text-align: center;
+    margin-top: 10px;
+}
+.binButton {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  .bin {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+  }
+  
+  .bin:hover {
+    transform: scale(1.1);
+  }
+  .date{
+    text-align: center;
+    margin: 15px 0;
+  }
+  .dinnerList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dinnerData{
+    display: flex;
+    align-items: center;
+  }

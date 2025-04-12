@@ -51,7 +51,7 @@ const ShoppingCart = ({
       <ul className={s.purchaseList}>
         {[...productsList].map((product) => {
           if (product.isDinner === true) {
-            return <DinnerItem dinner={product} />;
+            return <DinnerItem dinner={product} setProductsList={setProductsList} />;
           }
           const currentDish = dishes.find((dish) => {
             return product.id === dish.id;

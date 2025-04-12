@@ -1,7 +1,7 @@
 import React from "react";
 import dinners from "../../Data/dinners";
 import s from "./Dinners.module.css";
-
+import {v4 as uuidv4} from "uuid"
 const months = [
   "Січень",
   "Лютий",
@@ -75,7 +75,7 @@ const Dinners = ({ setProductsList }) => {
       }
     }
     setProductsList((prev) => {
-      return [...prev, { isDinner: true, dishes: userCard, date: dayDate }];
+      return [...prev, { isDinner: true, dishes: userCard, date: dayDate, id:uuidv4() }];
     });
   }
   return (
