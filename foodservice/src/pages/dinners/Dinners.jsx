@@ -1,7 +1,7 @@
 import React from "react";
 import dinners from "../../Data/dinners";
 import s from "./Dinners.module.css";
-import {v4 as uuidv4} from "uuid"
+import { v4 as uuidv4 } from "uuid";
 const months = [
   "Січень",
   "Лютий",
@@ -72,10 +72,14 @@ const Dinners = ({ setProductsList }) => {
     for (const [index, el] of [...inputs].entries()) {
       if (el.checked) {
         userCard.push(pickedDayItems[index]);
+        el.checked = false;
       }
     }
     setProductsList((prev) => {
-      return [...prev, { isDinner: true, dishes: userCard, date: dayDate, id:uuidv4() }];
+      return [
+        ...prev,
+        { isDinner: true, dishes: userCard, date: dayDate, id: uuidv4() },
+      ];
     });
   }
   return (

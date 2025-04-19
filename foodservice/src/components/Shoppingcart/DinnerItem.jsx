@@ -2,19 +2,27 @@ import React from "react";
 import s from "./DinnerItem.module.css";
 import images from "../../assets/index.js";
 const DinnerItem = ({ dinner, setProductsList }) => {
-  function onDelete(nameToDelete) {
+  function onDelete(name) {
     setProductsList((prev) => {
-      return prev.map((item) => {
-        if (item.id === dinner.id) {
-          const newDishList = item.dishes.filter((dish) => {
-            return dish.name !== nameToDelete;
-          });
-          return { ...item, dishes: newDishList };
-          
-        }
-       
-        return item;
-      });
+      return prev
+        .filter((item) => {
+          if (item.id === dinner.id) {
+            if (item.dishes.length === 1) {
+              return false;
+            }
+          }
+          return true;
+        })
+        .map((item) => {
+          if (item.id === dinner.id) {
+            const newDishList = item.dishes.filter((dish) => {
+              return dish.name !== name;
+            });
+            return { ...item, dishes: newDishList };
+          }
+
+          return item;
+        });
     });
   }
   return (
@@ -30,7 +38,7 @@ const DinnerItem = ({ dinner, setProductsList }) => {
                 <p>{dish.price}₴</p>
                 <button
                   onClick={() => {
-                    onDelete([dish.name, dish.id]);
+                    onDelete(dish.name);
                   }}
                   className={s.binButton}
                 >
