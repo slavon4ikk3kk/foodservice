@@ -3,9 +3,12 @@
   padding-top: 30px;
 }
 @media screen and (min-width: 1024px) {
-  .list{
+  .list {
     display: flex;
     flex-wrap: wrap;
-    width: ;
+    justify-content: center;
+  }
+  .item {
+    width: 400px;
   }
 }

@@ -3,14 +3,13 @@ import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Dishes from "../../Data/dishes.jsx";
 
-
-const Cabinet = ({setProductsList }) => {
+const Cabinet = ({ setProductsList }) => {
   return (
     <div style={{ padding: "90px 0" }} className="container">
       <ul className={s.list}>
         {Dishes.map((dish) => {
           return (
-            <li>
+            <li className={s.item}>
               <Dish
                 setProductsList={setProductsList}
                 name={dish.name}
