@@ -82,9 +82,9 @@ const Dinners = ({ setProductsList }) => {
         { isDinner: true, dishes: userCard, date: dayDate, id: uuidv4() },
       ];
     });
-   Notify.success("Обід доданий у кошик!", {
-         timeout: 3000,
-       });
+    Notify.success("Обід доданий у кошик!", {
+      timeout: 3000,
+    });
   }
   return (
     <div className={s.dinnerContainer}>
@@ -105,7 +105,8 @@ const Dinners = ({ setProductsList }) => {
                   <li className={s.liItem}>
                     <label className={s.checkboxLabel}>
                       <input type="checkbox" className={s.checkbox} />
-                      {item.name} - {item.price ? item.price + "₴" : "безкоштовно"}
+                      {item.name} -{" "}
+                      {item.price ? item.price + "₴" : "безкоштовно"}
                     </label>
                   </li>
                 ))}

@@ -22,8 +22,6 @@
   border-radius: 8px;
   text-align: left;
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .day {
@@ -66,4 +64,27 @@
 
 .purchaseButton:hover {
   background-color: #0056b3;
+}
+
+@media screen and (min-width: 1024px) {
+  .menuList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 70px;
+  }
+  .menuItem {
+    margin-bottom: 0;
+    height: 100%;
+    width: 330px;
+    min-height: 370px;
+    position: relative;
+  }
+  .purchaseButton {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
