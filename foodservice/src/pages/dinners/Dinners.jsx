@@ -2,6 +2,7 @@ import React from "react";
 import dinners from "../../Data/dinners";
 import s from "./Dinners.module.css";
 import { v4 as uuidv4 } from "uuid";
+import { Notify } from "notiflix";
 const months = [
   "Січень",
   "Лютий",
@@ -81,6 +82,9 @@ const Dinners = ({ setProductsList }) => {
         { isDinner: true, dishes: userCard, date: dayDate, id: uuidv4() },
       ];
     });
+   Notify.success("Обід доданий у кошик!", {
+         timeout: 3000,
+       });
   }
   return (
     <div className={s.dinnerContainer}>
@@ -101,7 +105,7 @@ const Dinners = ({ setProductsList }) => {
                   <li className={s.liItem}>
                     <label className={s.checkboxLabel}>
                       <input type="checkbox" className={s.checkbox} />
-                      {item.name} - {item.price} грн
+                      {item.name} - {item.price ? item.price + "₴" : "безкоштовно"}
                     </label>
                   </li>
                 ))}

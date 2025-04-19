@@ -41,13 +41,13 @@ const Header = ({ productsList, setisOpen, isOpen, setProductsList }) => {
         </p>
       </div>
       <p className={s.title}>Food Service</p>
-      <button
+      <button className={s.button}
         type="button"
         onClick={() => {
-          setOpenMenu(true);
+          setOpenMenu(!openMenu);
         }}
       >
-        <img className={s.logo} src={images.menu} alt="menu" />
+        <img className={s.logo} src={openMenu ? images.close : images.menu} alt="menu" />
       </button>
       {openMenu && (
         <div className={s.dropdownMenu}>
