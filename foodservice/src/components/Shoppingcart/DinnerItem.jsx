@@ -10,7 +10,9 @@ const DinnerItem = ({ dinner, setProductsList }) => {
             return dish.name !== nameToDelete;
           });
           return { ...item, dishes: newDishList };
+          
         }
+       
         return item;
       });
     });

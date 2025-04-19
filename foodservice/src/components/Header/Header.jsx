@@ -47,7 +47,7 @@ const Header = ({ productsList, setisOpen, isOpen, setProductsList }) => {
           setOpenMenu(true);
         }}
       >
-        <img className={s.logo} src={images.close} alt="logo" />
+        <img className={s.logo} src={images.menu} alt="menu" />
       </button>
       {openMenu && (
         <div className={s.dropdownMenu}>

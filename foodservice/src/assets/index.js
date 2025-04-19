@@ -1,4 +1,4 @@
-import burger from "./burger-menu.svg";
+
 import close from "./close.svg";
 import garbage from "./garbage.svg";
 import hekCutlets from "./hek.jpg";
@@ -16,10 +16,9 @@ import bin from "./bin.jpg";
 import person from "./person.svg";
 import phone from "./phone.svg";
 import address from "./address.svg";
-
+import menu from "./menu.svg"
 
 export default {
-  burger,
   close,
   garbage,
   hekCutlets,
@@ -34,6 +33,7 @@ export default {
   zraziMushrooms,
   dublings,
   bin,
+  menu,
 
   person,
   phone,
