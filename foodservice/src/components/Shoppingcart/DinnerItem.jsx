@@ -30,7 +30,7 @@ const DinnerItem = ({ dinner, setProductsList }) => {
                 <p>{dish.price}₴</p>
                 <button
                   onClick={() => {
-                    onDelete(dish.name);
+                    onDelete([dish.name, dish.id]);
                   }}
                   className={s.binButton}
                 >
