@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
-import Header from "../../components/Header/Header";
 import Dishes from "../../Data/dishes.jsx";
-import ShoppingCart from "../../components/Shoppingcart/Shoppingcart";
 
-const Cabinet = ({ productsList, setProductsList }) => {
+
+const Cabinet = ({setProductsList }) => {
   return (
     <div style={{ padding: "90px 0" }} className="container">
       <ul className={s.list}>
