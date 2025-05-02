@@ -4,8 +4,6 @@ import { Notify } from "notiflix/build/notiflix-notify-aio";
 const Dish = ({
   name,
   id,
-  ingredients,
-  methodCooking,
   price,
   image,
   setProductsList,

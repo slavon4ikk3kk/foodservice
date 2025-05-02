@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Dishes from "../../Data/dishes.jsx";

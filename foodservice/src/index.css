@@ -142,6 +142,9 @@ img {
 body {
   font-family: "Poppins", sans-serif;
   font-optical-sizing: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  overflow-y: scroll;
 }
 button {
   cursor: pointer;
@@ -150,4 +153,27 @@ button {
 .container {
   width: 100%;
   padding: 0 20px;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Для Firefox */
+*{
+scrollbar-width: none;     /* Прибрати саму смугу /
+scrollbar-color: transparent transparent; / Повністю прозора */
 }

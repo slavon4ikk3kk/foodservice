@@ -35,7 +35,7 @@ const DinnerItem = ({ dinner, setProductsList }) => {
             <li className={s.dinnerList}>
               <p>{dish.name}</p>
               <div className={s.dinnerData}>
-                <p>{dish.price ? dish.price + "" : "Безкоштовно"}</p>
+                <p>{dish.price ? dish.price + "₴" : "Безкоштовно"}</p>
                 <button
                   onClick={() => {
                     onDelete(dish.name);

@@ -49,7 +49,16 @@ const ShoppingCart = ({
         />
       </div>
       <ul className={s.purchaseList}>
-        {[...productsList].map((product) => {
+        {[...productsList]
+        .sort((a) => {
+          if(a.isDinner){
+            return -1;
+          }
+          else{
+            return 1;
+          }
+        })
+        .map((product) => {
           if (product.isDinner === true) {
             return <DinnerItem dinner={product} setProductsList={setProductsList} />;
           }
