@@ -18,6 +18,7 @@ import phone from "./phone.svg";
 import address from "./address.svg";
 import menu from "./menu.svg"
 
+
 export default {
   close,
   garbage,
@@ -34,7 +35,6 @@ export default {
   dublings,
   bin,
   menu,
-
   person,
   phone,
   address

@@ -18,6 +18,7 @@
 .bagImg {
   width: 22px;
   height: 26px;
+  cursor: pointer;
 }
 .count {
   position: absolute;
