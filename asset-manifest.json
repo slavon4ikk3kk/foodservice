@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/foodservice/static/css/main.7c627744.css",
-    "main.js": "/foodservice/static/js/main.91314614.js",
+    "main.css": "/foodservice/static/css/main.96e425b8.css",
+    "main.js": "/foodservice/static/js/main.83688b6f.js",
     "static/media/paper.jpg": "/foodservice/static/media/paper.00bea0908e51503f8283.jpg",
     "static/media/zraziMushrooms.jpg": "/foodservice/static/media/zraziMushrooms.da7fe47c24d81590c2a9.jpg",
     "static/media/hek.jpg": "/foodservice/static/media/hek.7911dd786db0beef8161.jpg",
@@ -12,20 +12,19 @@
     "static/media/pancakesMushroom.jpg": "/foodservice/static/media/pancakesMushroom.7bd57e728ae5e8fc7a50.jpg",
     "static/media/pancakesCheese.jpg": "/foodservice/static/media/pancakesCheese.834216492d61f43df2f4.jpg",
     "static/media/zraziMeat.jpg": "/foodservice/static/media/zraziMeat.e87f6077c4f199bb721a.jpg",
-    "static/media/food.svg": "/foodservice/static/media/food.0b30481dd627a522fba6a778fec02748.svg",
     "static/media/bin.jpg": "/foodservice/static/media/bin.6dd00c76d9cffa041cbc.jpg",
-    "static/media/phone.svg": "/foodservice/static/media/phone.333beeda82c0cc6a5df69f6a54521027.svg",
-    "static/media/address.svg": "/foodservice/static/media/address.88e9229bca0db7d9a539772a289fed4f.svg",
+    "static/media/phone.svg": "/foodservice/static/media/phone.9c4eb61de8779d296ec76e6662aafe42.svg",
+    "static/media/address.svg": "/foodservice/static/media/address.ae187781e590caf2ecd5ee313ff90e5d.svg",
     "static/media/close.svg": "/foodservice/static/media/close.2791559aacff61e43e9830e6e86fe5c2.svg",
     "index.html": "/foodservice/index.html",
-    "static/media/garbage.svg": "/foodservice/static/media/garbage.27bc6cb8e907a63c420d6fedfaa59f3f.svg",
-    "static/media/burger-menu.svg": "/foodservice/static/media/burger-menu.fc12fbd678bea2ce4ec9524cbe12a170.svg",
-    "static/media/person.svg": "/foodservice/static/media/person.71ccddd48c84f2b0c1118524c3689552.svg",
-    "main.7c627744.css.map": "/foodservice/static/css/main.7c627744.css.map",
-    "main.91314614.js.map": "/foodservice/static/js/main.91314614.js.map"
+    "static/media/garbage.svg": "/foodservice/static/media/garbage.10e8d3a35d7144e7ebcd5fcf6583254b.svg",
+    "static/media/menu.svg": "/foodservice/static/media/menu.fc12fbd678bea2ce4ec9524cbe12a170.svg",
+    "static/media/person.svg": "/foodservice/static/media/person.431b0119278a762b7985d2549fbe862e.svg",
+    "main.96e425b8.css.map": "/foodservice/static/css/main.96e425b8.css.map",
+    "main.83688b6f.js.map": "/foodservice/static/js/main.83688b6f.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c627744.css",
-    "static/js/main.91314614.js"
+    "static/css/main.96e425b8.css",
+    "static/js/main.83688b6f.js"
   ]
 }
