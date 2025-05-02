@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/foodservice/static/css/main.96e425b8.css",
+    "main.css": "/foodservice/static/css/main.e1de6676.css",
     "main.js": "/foodservice/static/js/main.83688b6f.js",
     "static/media/paper.jpg": "/foodservice/static/media/paper.00bea0908e51503f8283.jpg",
     "static/media/zraziMushrooms.jpg": "/foodservice/static/media/zraziMushrooms.da7fe47c24d81590c2a9.jpg",
@@ -20,11 +20,11 @@
     "static/media/garbage.svg": "/foodservice/static/media/garbage.10e8d3a35d7144e7ebcd5fcf6583254b.svg",
     "static/media/menu.svg": "/foodservice/static/media/menu.fc12fbd678bea2ce4ec9524cbe12a170.svg",
     "static/media/person.svg": "/foodservice/static/media/person.431b0119278a762b7985d2549fbe862e.svg",
-    "main.96e425b8.css.map": "/foodservice/static/css/main.96e425b8.css.map",
+    "main.e1de6676.css.map": "/foodservice/static/css/main.e1de6676.css.map",
     "main.83688b6f.js.map": "/foodservice/static/js/main.83688b6f.js.map"
   },
   "entrypoints": [
-    "static/css/main.96e425b8.css",
+    "static/css/main.e1de6676.css",
     "static/js/main.83688b6f.js"
   ]
 }
