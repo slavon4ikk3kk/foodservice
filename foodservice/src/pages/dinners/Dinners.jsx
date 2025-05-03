@@ -3,6 +3,7 @@ import dinners from "../../Data/dinners";
 import s from "./Dinners.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { Notify } from "notiflix";
+
 const months = [
   "Січень",
   "Лютий",
@@ -17,6 +18,7 @@ const months = [
   "Листопад",
   "Грудень",
 ];
+
 const days = [
   "Неділя",
   "Понеділок",
@@ -26,29 +28,39 @@ const days = [
   "П’ятниця",
   "Субота",
 ];
+
 const Dinners = ({ setProductsList }) => {
-  const dateArray = [];
-  const currentDay = new Date();
-  currentDay.setMonth(9);
-  // Визначаємо понеділок для поточного тижня
-  const startDate = new Date(currentDay);
+  const generateWorkingDays = () => {
+    const result = [];
+    const today = new Date();
+    let start = new Date(today);
+    const dayOfWeek = today.getDay();
 
-  // Якщо сьогодні субота (6) → додаємо 2 дні до понеділка
-  // Якщо сьогодні неділя (0) → додаємо 1 день до понеділка
-  if (currentDay.getDay() === 6) {
-    startDate.setDate(startDate.getDate() + 2);
-  } else if (currentDay.getDay() === 0) {
-    startDate.setDate(startDate.getDate() + 1);
-  } else {
-    // Якщо сьогодні будній день → визначаємо понеділок поточного тижня
-    startDate.setDate(startDate.getDate() - (startDate.getDay() - 1));
-  }
+    // Якщо субота або неділя → починаємо з наступного понеділка
+    if (dayOfWeek === 6) {
+      start.setDate(start.getDate() + 2);
+    } else if (dayOfWeek === 0) {
+      start.setDate(start.getDate() + 1);
+    } else {
+      // Інакше — понеділок–п’ятниця → з понеділка цього тижня
+      start.setDate(start.getDate() - (dayOfWeek - 1));
+    }
 
-  // Додаємо 5 робочих днів (понеділок – п’ятниця)
-  for (let i = 0; i < 5; i++) {
-    dateArray.push(new Date(startDate)); // Додаємо копію дати
-    startDate.setDate(startDate.getDate() + 1); // Зсуваємо дату на 1 день
-  }
+    // Додаємо 5 робочих днів (Пн–Пт)
+    while (result.length < 5) {
+      const current = new Date(start);
+      const currentDay = current.getDay();
+      if (currentDay >= 1 && currentDay <= 5) {
+        result.push(current);
+      }
+      start.setDate(start.getDate() + 1);
+    }
+
+    return result;
+  };
+
+  const dateArray = generateWorkingDays();
+
   const dates = dateArray.map((someDate) => {
     return (
       days[someDate.getDay()] +
@@ -62,6 +74,7 @@ const Dinners = ({ setProductsList }) => {
       ")"
     );
   });
+
   function handleSubmit(e) {
     e.preventDefault();
     const dayIndex = e.target.dataset.index;
@@ -86,12 +99,13 @@ const Dinners = ({ setProductsList }) => {
       timeout: 3000,
     });
   }
+
   return (
     <div className={s.dinnerContainer}>
       <h2 className={s.title}>Меню обідів</h2>
       <ul className={s.menuList}>
         {dinners.map((dinner, index) => (
-          <li className={s.menuItem}>
+          <li className={s.menuItem} key={index}>
             <form
               data-date={dates[index]}
               data-index={index}
@@ -101,8 +115,8 @@ const Dinners = ({ setProductsList }) => {
                 {dates[index]}
               </h3>
               <ul className={s.itemList}>
-                {dinner.items.map((item) => (
-                  <li className={s.liItem}>
+                {dinner.items.map((item, itemIndex) => (
+                  <li className={s.liItem} key={itemIndex}>
                     <label className={s.checkboxLabel}>
                       <input type="checkbox" className={s.checkbox} />
                       {item.name} -{" "}
