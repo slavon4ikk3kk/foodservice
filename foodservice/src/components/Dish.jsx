@@ -41,7 +41,7 @@ const Dish = ({
       return [...prev, { id, amount, isDinner: false }];
     });
     Notify.success("Товар доданий у кошик!", {
-      timeout: 3000,
+      timeout: 1000,
     });
     setAmount(0);
   }

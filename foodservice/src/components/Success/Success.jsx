@@ -32,7 +32,7 @@ const Success = ({
           return `\n${dish.name}`;
         })},\nЗагалом: ${product.dishes.reduce((acc, dish) => {
           return acc + dish.price;
-        }, 0)}$ `;
+        }, 0)}₴ `;
       } else {
         validMessage += `\n\n${
           dishes.find((dish) => {
@@ -41,7 +41,7 @@ const Success = ({
         }, Кількість товару: ${product.amount}`;
       }
     });
-    validMessage += `\n\nЗагальна ціна замовлення: ${totalCost} грн`;
+    validMessage += `\n\nЗагальна ціна замовлення: ${totalCost}₴`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
     // setSuccessModal(true);
 

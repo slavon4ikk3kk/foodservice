@@ -96,7 +96,7 @@ const Dinners = ({ setProductsList }) => {
       ];
     });
     Notify.success("Обід доданий у кошик!", {
-      timeout: 3000,
+      timeout: 1000,
     });
   }
 
