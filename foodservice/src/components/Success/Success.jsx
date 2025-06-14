@@ -91,11 +91,12 @@ const Success = ({
             <p className={s.successModalText}>
               Замовлення було успішно прийняте!
             </p>
-            <button className={`${s.buttonPayment} ${s.button}`}>
+         {/* <button className={`${s.buttonPayment} ${s.button}`}>
               <a target="_blank" rel="noopener noreferrer nofollow" href="#">
                 Посилання на оплату
               </a>
             </button>
+            */}
           </>
         ) : (
           <form className={s.form}>
