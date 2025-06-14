@@ -3,7 +3,6 @@ import s from "./Shoppingcart.module.css";
 import images from "../../assets/index";
 import dishes from "../../Data/dishes.jsx";
 import ShoppingcartItem from "./ShoppingcartItem";
-
 import Success from "../Success/Success";
 import DinnerItem from "./DinnerItem";
 
@@ -50,30 +49,43 @@ const ShoppingCart = ({
       </div>
       <ul className={s.purchaseList}>
         {[...productsList]
-        .sort((a) => {
-          if(a.isDinner){
-            return -1;
-          }
-          else{
-            return 1;
-          }
-        })
-        .map((product) => {
-          if (product.isDinner === true) {
-            return <DinnerItem dinner={product} setProductsList={setProductsList} />;
-          }
-          const currentDish = dishes.find((dish) => {
-            return product.id === dish.id;
-          });
-
-          return (
-            <ShoppingcartItem
-              currentDish={currentDish}
-              amount={product.amount}
-              setProductsList={setProductsList}
-            />
-          );
-        })}
+          .sort((a) => {
+            if (a.isDinner) {
+              return -1;
+            } else {
+              return 1;
+            }
+          })
+          .map((product) => {
+            if (product.isDinner === true) {
+              return (
+                <DinnerItem
+                  dinner={product}
+                  setProductsList={setProductsList}
+                />
+              );
+            }
+            const lsItems = JSON.parse(localStorage.getItem("sheetProducts"));
+            const currentDish = lsItems.find((dish) => {
+              return product.id === dish.id;
+            });
+            if (!currentDish) {
+              setProductsList((prev) => {
+                const newList = prev.filter(
+                  (bagItem) => bagItem.id !== product.id
+                );
+                return newList;
+              });
+              return;
+            }
+            return (
+              <ShoppingcartItem
+                currentDish={currentDish}
+                amount={product.amount}
+                setProductsList={setProductsList}
+              />
+            );
+          })}
       </ul>
       <div className={s.totalCostContainer}>
         <div className={s.totalCost}>
