@@ -8,11 +8,10 @@ const Cabinet = ({ setProductsList }) => {
   const [dinners, setDinners] = useState([]);
   
   useEffect(() => {
-    localStorage.setItem("sheetProducts", JSON.stringify(products));
-  }, [products]);
-  useEffect(() => {
-     localStorage.setItem("sheetDinners", JSON.stringify(dinners)); 
-  }, [dinners]);
+    localStorage.setItem("sheetProducts", "sheetDinners", JSON.stringify(products, dinners));
+  }, [products, dinners]);
+
+   
  
   useEffect(() => {
     fetch(
@@ -26,7 +25,7 @@ const Cabinet = ({ setProductsList }) => {
   
   useEffect(() => {
     fetch(
-      "https://script.google.com/macros/s/AKfycbxpC6PKTu--agg0K8uIBwaXOMsTmPnhkNyCn_FdKh4QvBprXjrwOzKSmCbn5LJcgE-o/exec"
+      "https://script.google.com/macros/s/AKfycbzQoltc2OQ5pTluvrxMxSBRrwW-Lb-oY-O_QnG58nCOuoWJmiRBK1e7KaNeEbpE7zCm/exec"
     )
       .then((res) => res.json())
       .then(setDinners)
