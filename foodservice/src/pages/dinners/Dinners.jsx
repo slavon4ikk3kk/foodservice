@@ -1,63 +1,53 @@
-import React from "react";
-import dinners from "../../Data/dinners";
+import React, { useState, useEffect } from "react";
+// import dinners from "../../Data/dinners";
+import kyrylicNames from "../../helpers/kyrylicNames.js";
+import generateWorkingDays from "../../helpers/generateWorkingDays";
 import s from "./Dinners.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { Notify } from "notiflix";
 
-const months = [
-  "Січень",
-  "Лютий",
-  "Березень",
-  "Квітень",
-  "Травень",
-  "Червень",
-  "Липень",
-  "Серпень",
-  "Вересень",
-  "Жовтень",
-  "Листопад",
-  "Грудень",
-];
-
-const days = [
-  "Неділя",
-  "Понеділок",
-  "Вівторок",
-  "Середа",
-  "Четвер",
-  "П’ятниця",
-  "Субота",
-];
-
+const { days, months } = kyrylicNames;
 const Dinners = ({ setProductsList }) => {
-  const generateWorkingDays = () => {
-    const result = [];
-    const today = new Date();
-    let start = new Date(today);
-    const dayOfWeek = today.getDay();
-
-    // Якщо субота або неділя → починаємо з наступного понеділка
-    if (dayOfWeek === 6) {
-      start.setDate(start.getDate() + 2);
-    } else if (dayOfWeek === 0) {
-      start.setDate(start.getDate() + 1);
-    } else {
-      // Інакше — понеділок–п’ятниця → з понеділка цього тижня
-      start.setDate(start.getDate() - (dayOfWeek - 1));
+  const [dinners, setDinners] = useState(() => {
+    const LS = JSON.parse(localStorage.getItem("sheetDinners"));
+    if (LS) {
+      return LS;
     }
+    return [];
+  });
+  console.log(dinners);
+  useEffect(() => {
+    fetch(
+      "https://script.google.com/macros/s/AKfycbzQoltc2OQ5pTluvrxMxSBRrwW-Lb-oY-O_QnG58nCOuoWJmiRBK1e7KaNeEbpE7zCm/exec"
+    )
+      .then((res) => res.json())
+      .then(setDinners)
+      .catch((err) => console.error("Помилка завантаження обідів:", err));
+  }, []);
 
-    // Додаємо 5 робочих днів (Пн–Пт)
-    while (result.length < 5) {
-      const current = new Date(start);
-      const currentDay = current.getDay();
-      if (currentDay >= 1 && currentDay <= 5) {
-        result.push(current);
+  useEffect(() => {
+    const productsLs = JSON.parse(localStorage.getItem("products"));
+    const filteredProducts = productsLs.map((product) => {
+      if (product.isDinner) {
+        const filterArr = product.dishes.filter((dinnerInLs) => {
+          const indexInArray = dinners.find((actualDinner) => {
+            return (
+              actualDinner.name === dinnerInLs.name &&
+              actualDinner.day === dinnerInLs.day
+            );
+          });
+          if (indexInArray === -1) {
+            return false;
+          }
+        });
+        return { ...product, dishes: filterArr };
       }
-      start.setDate(start.getDate() + 1);
-    }
 
-    return result;
-  };
+      return product;
+    });
+    localStorage.setItem("products", JSON.stringify(filteredProducts));
+    localStorage.setItem("sheetDinners", JSON.stringify(dinners));
+  }, [dinners]);
 
   const dateArray = generateWorkingDays();
 
@@ -74,13 +64,20 @@ const Dinners = ({ setProductsList }) => {
       ")"
     );
   });
+  console.log(dates);
 
   function handleSubmit(e) {
     e.preventDefault();
-    const dayIndex = e.target.dataset.index;
-    const dayDate = e.target.dataset.date;
-    const pickedDayItems = dinners[dayIndex].items;
 
+    const dayIndex = +e.target.dataset.index;
+    console.log(dayIndex);
+    const dayDate = e.target.dataset.date;
+    console.log(dayDate);
+    console.log(dinners);
+    const pickedDayItems = dinners.filter((dinner) => {
+      return dinner.day === dayIndex;
+    });
+    console.log(pickedDayItems);
     const userCard = [];
     const inputs = e.target.elements;
     for (const [index, el] of [...inputs].entries()) {
@@ -88,6 +85,12 @@ const Dinners = ({ setProductsList }) => {
         userCard.push(pickedDayItems[index]);
         el.checked = false;
       }
+    }
+    if (userCard.length === 0) {
+      Notify.info("Оберіть хоча б один товар!", {
+        timeout: 1000,
+      });
+      return;
     }
     setProductsList((prev) => {
       return [
@@ -104,18 +107,32 @@ const Dinners = ({ setProductsList }) => {
     <div className={s.dinnerContainer}>
       <h2 className={s.title}>Меню обідів</h2>
       <ul className={s.menuList}>
-        {dinners.map((dinner, index) => (
+        {dates.map((data, index) => (
           <li className={s.menuItem} key={index}>
             <form
-              data-date={dates[index]}
-              data-index={index}
+              data-date={data}
+              data-index={index + 1}
               onSubmit={handleSubmit}
             >
               <h3 className={s.day} style={{ textAlign: "center" }}>
                 {dates[index]}
               </h3>
               <ul className={s.itemList}>
-                {dinner.items.map((item, itemIndex) => (
+                {dinners
+                  .filter((dinner) => {
+                    return dinner.day === index + 1;
+                  })
+                  .map((item, itemIndex) => (
+                    <li className={s.liItem} key={itemIndex}>
+                      <label className={s.checkboxLabel}>
+                        <input type="checkbox" className={s.checkbox} />
+                        {item.name} -{" "}
+                        {item.price ? item.price + "₴" : "безкоштовно"}
+                      </label>
+                    </li>
+                  ))}
+
+                {/* {dinner.items.map((item, itemIndex) => (
                   <li className={s.liItem} key={itemIndex}>
                     <label className={s.checkboxLabel}>
                       <input type="checkbox" className={s.checkbox} />
@@ -123,7 +140,7 @@ const Dinners = ({ setProductsList }) => {
                       {item.price ? item.price + "₴" : "безкоштовно"}
                     </label>
                   </li>
-                ))}
+                ))} */}
                 <button type="submit" className={s.purchaseButton}>
                   додати до кошика
                 </button>

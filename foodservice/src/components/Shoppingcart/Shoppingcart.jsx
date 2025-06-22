@@ -14,7 +14,6 @@ const ShoppingCart = ({
   successModal,
 }) => {
   const totalCost = productsList.reduce((sum, product) => {
-    console.log(product);
     if (product.isDinner) {
       const sumDishes = product.dishes.reduce((acc, dish) => {
         return acc + dish.price;

@@ -25,6 +25,7 @@ const DinnerItem = ({ dinner, setProductsList }) => {
         });
     });
   }
+
   return (
     <div>
       <p className={s.title}>Обід</p>
