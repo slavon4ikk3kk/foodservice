@@ -15,7 +15,7 @@ const Dinners = ({ setProductsList }) => {
     }
     return [];
   });
-  console.log(dinners);
+
   useEffect(() => {
     fetch(
       "https://script.google.com/macros/s/AKfycbzQoltc2OQ5pTluvrxMxSBRrwW-Lb-oY-O_QnG58nCOuoWJmiRBK1e7KaNeEbpE7zCm/exec"
@@ -26,25 +26,43 @@ const Dinners = ({ setProductsList }) => {
   }, []);
 
   useEffect(() => {
+    if (!dinners || dinners.length === 0) {
+      return;
+    }
     const productsLs = JSON.parse(localStorage.getItem("products"));
-    const filteredProducts = productsLs.map((product) => {
-      if (product.isDinner) {
-        const filterArr = product.dishes.filter((dinnerInLs) => {
-          const indexInArray = dinners.find((actualDinner) => {
-            return (
-              actualDinner.name === dinnerInLs.name &&
-              actualDinner.day === dinnerInLs.day
-            );
+    console.log(dinners);
+    console.log(productsLs);
+    const filteredProducts = productsLs
+      .map((product) => {
+        if (product.isDinner) {
+          const filterArr = product.dishes.filter((dinnerInLs) => {
+            const indexInArray = dinners.find((actualDinner) => {
+              return (
+                actualDinner.name === dinnerInLs.name &&
+                actualDinner.day === dinnerInLs.day
+              );
+            });
+            console.log(indexInArray);
+            if (indexInArray === undefined) {
+              return false;
+            }
+            return true;
           });
-          if (indexInArray === -1) {
+          console.log(filterArr);
+          return { ...product, dishes: filterArr };
+        }
+        console.log(product);
+        return product;
+      })
+      .filter((product) => {
+        if (product.isDinner) {
+          if (product.dishes.length === 0) {
             return false;
           }
-        });
-        return { ...product, dishes: filterArr };
-      }
-
-      return product;
-    });
+          return true;
+        }
+        return product;
+      });
     localStorage.setItem("products", JSON.stringify(filteredProducts));
     localStorage.setItem("sheetDinners", JSON.stringify(dinners));
   }, [dinners]);
@@ -64,20 +82,17 @@ const Dinners = ({ setProductsList }) => {
       ")"
     );
   });
-  console.log(dates);
 
   function handleSubmit(e) {
     e.preventDefault();
 
     const dayIndex = +e.target.dataset.index;
-    console.log(dayIndex);
+
     const dayDate = e.target.dataset.date;
-    console.log(dayDate);
-    console.log(dinners);
+
     const pickedDayItems = dinners.filter((dinner) => {
       return dinner.day === dayIndex;
     });
-    console.log(pickedDayItems);
     const userCard = [];
     const inputs = e.target.elements;
     for (const [index, el] of [...inputs].entries()) {
