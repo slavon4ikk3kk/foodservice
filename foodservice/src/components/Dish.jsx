@@ -33,12 +33,12 @@ const Dish = ({
       if (isInCart) {
         return prev.map((dishObj) => {
           if (dishObj.id === id) {
-            return { id, amount: amount + dishObj.amount, isDinner: false };
+            return { id, amount: amount + dishObj.amount, price: dishObj.price, isDinner: false };
           }
           return dishObj;
         });
       }
-      return [...prev, { id, amount, isDinner: false }];
+      return [...prev, { id, amount, price, isDinner: false }];
     });
     Notify.success("Товар доданий у кошик!", {
       timeout: 1000,
