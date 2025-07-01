@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Shoppingcart.module.css";
 import images from "../../assets/index";
-import dishes from "../../Data/dishes.jsx";
+// import dishes from "../../Data/dishes.jsx";
 import ShoppingcartItem from "./ShoppingcartItem";
 import Success from "../Success/Success";
 import DinnerItem from "./DinnerItem";
@@ -20,9 +20,13 @@ const ShoppingCart = ({
       }, 0);
       return sum + sumDishes;
     }
+    const dishes = JSON.parse(localStorage.getItem("sheetProducts"));
     const currentPrice = dishes.find((dish) => {
       return product.id === dish.id;
     });
+    console.log(dishes);
+    console.log(product);
+    console.log(currentPrice);
     return sum + product.amount * currentPrice.price;
   }, 0);
 
