@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import s from "./Dish.module.css";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
-const Dish = ({
-  name,
-  id,
-  price,
-  image,
-  setProductsList,
-}) => {
+const Dish = ({ name, id, price, image, setProductsList }) => {
   const [amount, setAmount] = useState(0);
   function HandleAmountChange(e) {
     setAmount(e.target.value);
@@ -33,12 +27,18 @@ const Dish = ({
       if (isInCart) {
         return prev.map((dishObj) => {
           if (dishObj.id === id) {
-            return { id, amount: amount + dishObj.amount, price: dishObj.price, isDinner: false };
+            return {
+              id,
+              amount: amount + dishObj.amount,
+              price: dishObj.price,
+              isDinner: false,
+              name: dishObj.name,
+            };
           }
           return dishObj;
         });
       }
-      return [...prev, { id, amount, price, isDinner: false }];
+      return [...prev, { id, amount, price, isDinner: false, name }];
     });
     Notify.success("Товар доданий у кошик!", {
       timeout: 1000,

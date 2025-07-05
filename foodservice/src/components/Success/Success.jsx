@@ -27,6 +27,7 @@ const Success = ({
     e.preventDefault();
     let validMessage = `Зроблено замовлення: `;
     productsList.forEach((product) => {
+      console.log(product);
       if (product.isDinner === true) {
         validMessage += `\n\n${product.date},${product.dishes.map((dish) => {
           return `\n${dish.name}`;
@@ -41,9 +42,23 @@ const Success = ({
         }, Кількість товару: ${product.amount}`;
       }
     });
+
+    fetch(
+      "https://script.google.com/macros/s/AKfycbyA_2POhMnznyH4qqM3HjFrWDB2H_3vRwigRl9M2VW3E2iQicdHJ--qVAyJalLVlj0ufw/exec",
+      {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: { name, address, phone, Timestamp: 1, order: validMessage },
+      }
+    )
+      .then((response) => response.text())
+      .then((result) => alert("Заявка надіслана!"))
+      .catch((error) => alert("Помилка: " + error));
+
     validMessage += `\n\nЗагальна ціна замовлення: ${totalCost}₴`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
     // setSuccessModal(true);
+    // const data = new FormData(form);
 
     const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     try {
@@ -91,7 +106,7 @@ const Success = ({
             <p className={s.successModalText}>
               Замовлення було успішно прийняте!
             </p>
-         {/* <button className={`${s.buttonPayment} ${s.button}`}>
+            {/* <button className={`${s.buttonPayment} ${s.button}`}>
               <a target="_blank" rel="noopener noreferrer nofollow" href="#">
                 Посилання на оплату
               </a>
