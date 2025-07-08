@@ -4,7 +4,13 @@ import images from "../../assets/index";
 import s from "./Header.module.css";
 import ShoppingCart from "../Shoppingcart/Shoppingcart";
 
-const Header = ({ productsList, setisOpen, isOpen, setProductsList }) => {
+const Header = ({
+  productsList,
+  setisOpen,
+  isOpen,
+  setProductsList,
+  setisDinner,
+}) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const toggleMenu = () => {
@@ -41,13 +47,56 @@ const Header = ({ productsList, setisOpen, isOpen, setProductsList }) => {
         </p>
       </div>
       <p className={s.title}>Food Service</p>
-      <button className={s.button}
+      <button
+        className={s.button}
         type="button"
         onClick={() => {
           setOpenMenu(!openMenu);
         }}
       >
-        <img className={s.logo} src={openMenu ? images.close : images.menu} alt="menu" />
+        {openMenu ? (
+          <svg
+            width="35px"
+            height="35px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+              fill="#0F1729"
+            />
+          </svg>
+        ) : (
+          <svg
+            width="35px"
+            height="35px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 18L20 18"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4 12L20 12"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <path
+              d="M4 6L20 6"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        )}
       </button>
       {openMenu && (
         <div className={s.dropdownMenu}>
@@ -57,14 +106,26 @@ const Header = ({ productsList, setisOpen, isOpen, setProductsList }) => {
                 setOpenMenu(false);
               }}
             >
-              <Link to={"/*"}>Напівфабрикати</Link>
+              <p
+                onClick={() => {
+                  setisDinner(false);
+                }}
+              >
+                Напівфабрикати
+              </p>
             </li>
             <li
               onClick={() => {
                 setOpenMenu(false);
               }}
             >
-              <Link to={"/dinners"}>Комплексні обіди</Link>
+              <p
+                onClick={() => {
+                  setisDinner(true);
+                }}
+              >
+                Комплексні обіди
+              </p>
             </li>
           </ul>
         </div>

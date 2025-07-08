@@ -8,45 +8,34 @@ function App() {
   const [productsList, setProductsList] = useState(() => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
-
+  const [isDinner, setisDinner] = useState(false);
   const [isOpen, setisOpen] = useState(false);
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productsList));
   }, [productsList]);
   return (
-    <Router>
-      <div>
-        <Header
-          setisOpen={setisOpen}
+    <div>
+      <Header
+        setisOpen={setisOpen}
+        productsList={productsList}
+        isOpen={isOpen}
+        setProductsList={setProductsList}
+        setisDinner={setisDinner}
+      />
+      {isDinner ? (
+        <Dinners
+          setProductsList={setProductsList}
           productsList={productsList}
+        ></Dinners>
+      ) : (
+        <Cabinet
+          setisOpen={setisOpen}
           isOpen={isOpen}
           setProductsList={setProductsList}
+          productsList={productsList}
         />
-
-        <Routes>
-          <Route
-            path="/*"
-            element={
-              <Cabinet
-                setisOpen={setisOpen}
-                isOpen={isOpen}
-                setProductsList={setProductsList}
-                productsList={productsList}
-              />
-            }
-          />
-          <Route
-            path="/dinners"
-            element={
-              <Dinners
-                setProductsList={setProductsList}
-                productsList={productsList}
-              ></Dinners>
-            }
-          />
-        </Routes>
-      </div>
-    </Router>
+      )}
+    </div>
   );
 }
 
