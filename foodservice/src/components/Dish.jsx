@@ -48,7 +48,7 @@ const Dish = ({ name, id, price, image, setProductsList }) => {
   return (
     <>
       <form className={s.dishMain} onSubmit={handleSubmit}>
-        <img src={image} className={s.img}></img>
+        <img src={image} loading="lazy" className={s.img}></img>
         <p className={s.name}>{name}</p>
         {/* <p>Склад: {ingredients}</p>
       <p>Спосіб приготування: {methodCooking}</p> */}
