@@ -30,8 +30,7 @@ const Dinners = ({ setProductsList }) => {
       return;
     }
     const productsLs = JSON.parse(localStorage.getItem("products"));
-    console.log(dinners);
-    console.log(productsLs);
+
     const filteredProducts = productsLs
       .map((product) => {
         if (product.isDinner) {
@@ -42,16 +41,16 @@ const Dinners = ({ setProductsList }) => {
                 actualDinner.day === dinnerInLs.day
               );
             });
-            console.log(indexInArray);
+
             if (indexInArray === undefined) {
               return false;
             }
             return true;
           });
-          console.log(filterArr);
+
           return { ...product, dishes: filterArr };
         }
-        console.log(product);
+
         return product;
       })
       .filter((product) => {

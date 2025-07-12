@@ -24,9 +24,7 @@ const ShoppingCart = ({
     const currentPrice = dishes.find((dish) => {
       return product.id === dish.id;
     });
-    console.log(dishes);
-    console.log(product);
-    console.log(currentPrice);
+
     return sum + product.amount * currentPrice.price;
   }, 0);
 

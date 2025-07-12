@@ -21,7 +21,6 @@ const ShoppingcartItem = ({
     setAmount(amount - 1);
   }
   useEffect(() => {
-    console.log(currentDish);
     setProductsList((prev) => {
       const newList = prev.map((bagItem) => {
         if (bagItem.id === currentDish.id) {
@@ -39,7 +38,7 @@ const ShoppingcartItem = ({
       return newList;
     });
   }
-  console.log(currentDish);
+
   return (
     <li className={s.cartList}>
       {currentDish ? (

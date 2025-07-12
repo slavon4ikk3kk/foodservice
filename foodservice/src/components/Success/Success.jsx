@@ -43,21 +43,6 @@ const Success = ({
       }
     });
 
-    // fetch(
-    //   "https://script.google.com/macros/s/AKfycbyA_2POhMnznyH4qqM3HjFrWDB2H_3vRwigRl9M2VW3E2iQicdHJ--qVAyJalLVlj0ufw/exec",
-    //   {
-    //     headers: { "Content-Type": "application/json" },
-    //     method: "POST",
-    //     body: { name, address, phone, Timestamp: 1, order: validMessage },
-    //   }
-    // )
-    //   .then((response) => response.text())
-    //   .then((result) => alert("Заявка надіслана!"))
-    //   .catch((error) => {
-    //     console.log(error);
-    //     alert("Помилка: " + error);
-    //   });
-
     validMessage += `\n\nЗагальна ціна замовлення: ${totalCost}₴`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
     // setSuccessModal(true);
@@ -75,8 +60,6 @@ const Success = ({
         setProductsList([]);
         setIsConfirmAddress(true);
       } catch (error) {
-        console.log("помилка");
-        console.log(error);
         Notify.failure("Сталася помилка", {
           timeout: 3000,
         });
