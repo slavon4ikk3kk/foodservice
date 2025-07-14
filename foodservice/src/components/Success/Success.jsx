@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import s from "./Success.module.css";
 import images from "../../assets/index";
@@ -7,10 +8,8 @@ import { Notify } from "notiflix/build/notiflix-notify-aio";
 const botToken =
   process.env.REACT_APP_TELEGRAM_BOT_TOKEN ||
   import.meta.env.REACT_APP_TELEGRAM_BOT_TOKEN;
-// const chatId =
-//   process.env.REACT_APP_TELEGRAM_CHAT_ID ||
-//   import.meta.env.REACT_APP_TELEGRAM_CHAT_ID;
-const chatId = [457867068, 509929185, 1305980352];
+
+const chatId = process.env.REACT_APP_TELEGRAM_CHAT_ID;
 
 const Success = ({
   setSuccessModal,
@@ -28,6 +27,7 @@ const Success = ({
     e.preventDefault();
     let validMessage = `Зроблено замовлення: `;
     productsList.forEach((product) => {
+      console.log(product);
       if (product.isDinner === true) {
         validMessage += `\n\n${product.date},${product.dishes.map((dish) => {
           return `\n${dish.name}`;
@@ -42,11 +42,29 @@ const Success = ({
         }, Кількість товару: ${product.amount}`;
       }
     });
-
+  
     validMessage += `\n\nЗагальна ціна замовлення: ${totalCost}₴`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
-    // setSuccessModal(true);
-    // const data = new FormData(form);
+  
+
+    const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    try {
+      await axios.post(apiUrl, {
+        chat_id: chatId,
+        text: validMessage,
+      });
+      Notify.success("Заявка успішно відправлена", {
+        timeout: 3000,
+      });
+      setProductsList([]);
+      setIsConfirmAddress(true);
+    } catch (error) {
+      console.log("помилка");
+      Notify.failure("Сталася помилка", {
+        timeout: 3000,
+      });
+      setIsConfirmAddress(false);
+    }
     chatId.forEach(async (chat_id) => {
       const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
       try {
@@ -60,6 +78,8 @@ const Success = ({
         setProductsList([]);
         setIsConfirmAddress(true);
       } catch (error) {
+        console.log("помилка");
+        console.log(error);
         Notify.failure("Сталася помилка", {
           timeout: 3000,
         });

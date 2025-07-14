@@ -46,7 +46,7 @@ const Header = ({
           {productsList.length}
         </p>
       </div>
-      <p className={s.title}>Food Service</p>
+      <p className={s.title}>Комунальне Підприємство "ФУДСЕРВІС"</p>
       <button
         className={s.button}
         type="button"

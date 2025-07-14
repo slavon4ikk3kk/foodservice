@@ -20,7 +20,7 @@ const Cabinet = ({ setProductsList }) => {
   }, []);
 
   return (
-    <div style={{ padding: "90px 0" }} className="container">
+    <div style={{ padding: "100px 0" }} className="container">
       <ul className={s.list}>
         {products.map((dish) => {
           return (
