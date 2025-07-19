@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import s from "./Catering.module.css";
 
+const NAMES = {
+  cold: "холодні закуски",
+  hot: "гарячі страви",
+  flour: "страви з борошна",
+  salad: "салати",
+  fastFood: "фастфуд",
+  other: [],
+};
+
 const Catering = () => {
   const [catering, setCatering] = useState(() => {
     return [];
@@ -13,6 +22,7 @@ const Catering = () => {
     fastFood: [],
     other: [],
   };
+
   useEffect(() => {
     fetch(
       "https://script.google.com/macros/s/AKfycby6Dw51AY84hUh2QHFN76XM3Jjj9jrCUe98dtzZI-lG_TWbBBOJpNbke_5zlwI37Ojx/exec"
@@ -23,23 +33,23 @@ const Catering = () => {
   }, []);
   if (catering.length > 0) {
     catering.forEach((dish) => {
-      if (dish.category === "гарячі страви") {
+      if (dish.category === NAMES.hot) {
         categories.hot.push(dish);
         return;
       }
-      if (dish.category === "холодні закуски") {
+      if (dish.category === NAMES.cold) {
         categories.cold.push(dish);
         return;
       }
-      if (dish.category === "фастфуд") {
+      if (dish.category === NAMES.fastFood) {
         categories.fastFood.push(dish);
         return;
       }
-      if (dish.category === "страви з борошна") {
+      if (dish.category === NAMES.flour) {
         categories.flour.push(dish);
         return;
       }
-      if (dish.category === "салати") {
+      if (dish.category === NAMES.salad) {
         categories.salad.push(dish);
         return;
       }
@@ -58,7 +68,7 @@ const Catering = () => {
         }
         return (
           <>
-            <p>{categoryBlock}</p>
+            <p>{NAMES[categoryBlock]}</p>
             <ul>
               {categories[categoryBlock].map((dish) => {
                 return (
