@@ -108,7 +108,7 @@ const Header = ({
             >
               <p
                 onClick={() => {
-                  setisDinner(false);
+                  setisDinner("cabinet");
                 }}
               >
                 Напівфабрикати
@@ -121,14 +121,24 @@ const Header = ({
             >
               <p
                 onClick={() => {
-                  setisDinner(true);
+                  setisDinner("dinner");
                 }}
               >
                 Комплексні обіди
               </p>
             </li>
-            <li>
-              <p>Кейтерингове меню</p>
+            <li
+              onClick={() => {
+                setOpenMenu(false);
+              }}
+            >
+              <p
+                onClick={() => {
+                  setisDinner("catering");
+                }}
+              >
+                Кейтерингове меню
+              </p>
             </li>
           </ul>
         </div>

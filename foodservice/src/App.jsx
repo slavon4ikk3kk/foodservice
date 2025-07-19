@@ -3,12 +3,13 @@ import Cabinet from "./pages/cabinet/Cabinet";
 import Dinners from "./pages/dinners/Dinners";
 import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
+import Catering from "./pages/Catering/Catering";
 
 function App() {
   const [productsList, setProductsList] = useState(() => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
-  const [isDinner, setisDinner] = useState(false);
+  const [isDinner, setisDinner] = useState("dinner");
   const [isOpen, setisOpen] = useState(false);
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productsList));
@@ -22,13 +23,22 @@ function App() {
         setProductsList={setProductsList}
         setisDinner={setisDinner}
       />
-      {isDinner ? (
+      {isDinner === "dinner" && (
         <Dinners
           setProductsList={setProductsList}
           productsList={productsList}
         ></Dinners>
-      ) : (
+      )}
+      {isDinner === "cabinet" && (
         <Cabinet
+          setisOpen={setisOpen}
+          isOpen={isOpen}
+          setProductsList={setProductsList}
+          productsList={productsList}
+        />
+      )}
+      {isDinner === "catering" && (
+        <Catering
           setisOpen={setisOpen}
           isOpen={isOpen}
           setProductsList={setProductsList}
