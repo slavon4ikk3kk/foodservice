@@ -1,5 +1,32 @@
+/* Загальний стиль для контейнера */
 .dinnerContainer {
+  width: 100%;
   padding: 20px;
-  text-align: center;
   padding-top: 120px;
+  text-align: center;
+  background-color: #fdfdfd;
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+  font-weight: 500;
+}
+.data{
+  margin: 10px 0;
+}
+.li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0; 
+}
+.h1{
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.name{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
 }

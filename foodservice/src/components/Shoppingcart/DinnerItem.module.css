@@ -1,99 +1,83 @@
-.dinnerData {
-  background-color: #fff9f0;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  max-width: 600px;
-  margin: 10px 0;
-}
+/* Dinner.module.css */
 
-
-.title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #6c4f37;
-  margin-bottom: 4px;
+/* Загальний стиль для контейнера */
+.dinnerContainer {
+  padding: 20px;
+  padding-top: 120px;
   text-align: center;
-  text-transform: capitalize;
+  background-color: #fdfdfd;
+  font-family: 'Arial', sans-serif;
+  color: #000; /* Чорний колір для всього тексту */
 }
 
-
-.date {
-  font-size: 12px; 
-  color: #b0a59d;
-  margin-bottom: 6px; 
-  text-align: center;
+/* Заголовок "Меню 05.2025" */
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  color: #000;
 }
 
-
-ul {
+/* Список категорій */
+.dishList {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* За замовчуванням одна категорія в ряд */
+  gap: 20px;
 }
 
-
-.dinnerList {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f9f4e7;
-  border-radius: 6px; 
-  padding: 6px 8px; 
-  margin-bottom: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
+/* Один елемент категорії */
+.dishItem {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.dinnerList:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.dinnerList p {
-  font-size: 14px; 
-  font-weight: 500;
-  color: #6c4f37;
+/* Назва страви */
+.dishName {
+  font-weight: bold;
   margin: 0;
-  text-transform: capitalize;
+  font-size: 18px;
+  color: #000;
 }
 
-
-.dinnerData {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px; 
-}
-
-
-.dinnerData p {
-  font-size: 13px; 
-  font-weight: 600;
-  color: black;
-  margin: 0;
-}
-
-.binButton {
-  background: none;
+/* Стилі для кнопки "додати до кошика" */
+.addToCartButton {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #000;
+  color: white;
   border: none;
-  padding: 2px; 
+  border-radius: 5px;
   cursor: pointer;
-  transition: transform 0.2s ease;
 }
 
-
-.bin {
-  width: 22px;  
-  height: 22px;
-  object-fit: contain;
+.addToCartButton:hover {
+  background-color: #333;
 }
 
-
-.binButton:hover {
-  transform: scale(1.05); 
-}
-
+/* Адаптивність для великих екранів (десктоп) */
 @media screen and (min-width: 1024px) {
-  
+  .dishList {
+    grid-template-columns: repeat(4, 1fr); /* 4 категорії в ряд на десктопі */
+  }
+}
+
+/* Адаптивність для планшетів */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .dishList {
+    grid-template-columns: repeat(2, 1fr); /* 2 категорії в ряд на планшетах */
+  }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media screen and (max-width: 767px) {
+  .dishList {
+    grid-template-columns: 1fr; /* 1 категорія в ряд на мобільних пристроях */
+  }
 }
