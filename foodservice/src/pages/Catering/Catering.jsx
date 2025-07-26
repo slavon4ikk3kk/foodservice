@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import s from "./Catering.module.css";
-
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 const NAMES = {
   cold: "Холодні закуски",
   hot: "Гарячі страви",
