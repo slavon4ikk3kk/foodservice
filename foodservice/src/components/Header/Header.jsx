@@ -9,7 +9,7 @@ const Header = ({
   setisOpen,
   isOpen,
   setProductsList,
-  setisDinner,
+  setPage,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
@@ -47,7 +47,7 @@ const Header = ({
         </p>
       </div>
       <div className={s.centerContainer}>
-      <p className={s.title}>Комунальне Підприємство "ФУДСЕРВІС"</p>
+        <p className={s.title}>Комунальне Підприємство "ФУДСЕРВІС"</p>
       </div>
       <button
         className={s.button}
@@ -110,7 +110,7 @@ const Header = ({
             >
               <p
                 onClick={() => {
-                  setisDinner("cabinet");
+                  setPage("cabinet");
                 }}
               >
                 Напівфабрикати
@@ -123,7 +123,7 @@ const Header = ({
             >
               <p
                 onClick={() => {
-                  setisDinner("dinner");
+                  setPage("dinner");
                 }}
               >
                 Комплексні обіди
@@ -136,7 +136,7 @@ const Header = ({
             >
               <p
                 onClick={() => {
-                  setisDinner("catering");
+                  setPage("catering");
                 }}
               >
                 Кейтерингове меню

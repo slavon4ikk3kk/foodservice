@@ -9,7 +9,7 @@ function App() {
   const [productsList, setProductsList] = useState(() => {
     return JSON.parse(localStorage.getItem("products")) || [];
   });
-  const [isDinner, setisDinner] = useState("dinner");
+  const [page, setPage] = useState("dinner");
   const [isOpen, setisOpen] = useState(false);
   useEffect(() => {
     localStorage.setItem("products", JSON.stringify(productsList));
@@ -21,15 +21,15 @@ function App() {
         productsList={productsList}
         isOpen={isOpen}
         setProductsList={setProductsList}
-        setisDinner={setisDinner}
+        setPage={setPage}
       />
-      {isDinner === "dinner" && (
+      {page === "dinner" && (
         <Dinners
           setProductsList={setProductsList}
           productsList={productsList}
         ></Dinners>
       )}
-      {isDinner === "cabinet" && (
+      {page === "cabinet" && (
         <Cabinet
           setisOpen={setisOpen}
           isOpen={isOpen}
@@ -37,7 +37,7 @@ function App() {
           productsList={productsList}
         />
       )}
-      {isDinner === "catering" && (
+      {page === "catering" && (
         <Catering
           setisOpen={setisOpen}
           isOpen={isOpen}

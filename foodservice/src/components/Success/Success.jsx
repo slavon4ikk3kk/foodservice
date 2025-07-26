@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import s from "./Success.module.css";
 import images from "../../assets/index";
@@ -28,7 +27,7 @@ const Success = ({
     let validMessage = `Зроблено замовлення: `;
     productsList.forEach((product) => {
       console.log(product);
-      if (product.isDinner === true) {
+      if (product.isDinner === "dinner") {
         validMessage += `\n\n${product.date},${product.dishes.map((dish) => {
           return `\n${dish.name}`;
         })},\nЗагалом: ${product.dishes.reduce((acc, dish) => {
@@ -42,10 +41,9 @@ const Success = ({
         }, Кількість товару: ${product.amount}`;
       }
     });
-  
+
     validMessage += `\n\nЗагальна ціна замовлення: ${totalCost}₴`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
-  
 
     const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     try {

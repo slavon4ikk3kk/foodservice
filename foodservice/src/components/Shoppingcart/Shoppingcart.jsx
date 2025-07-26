@@ -5,6 +5,7 @@ import images from "../../assets/index";
 import ShoppingcartItem from "./ShoppingcartItem";
 import Success from "../Success/Success";
 import DinnerItem from "./DinnerItem";
+import { Loading } from "notiflix";
 
 const ShoppingCart = ({
   setProductsList,
@@ -14,14 +15,17 @@ const ShoppingCart = ({
   successModal,
 }) => {
   const totalCost = productsList.reduce((sum, product) => {
-    if (product.isDinner) {
+    if (product.isDinner === "dinner") {
       const sumDishes = product.dishes.reduce((acc, dish) => {
-        return acc + dish.price;
+        console.log(dish.price);
+        return acc + +dish.price;
       }, 0);
-      return sum + sumDishes;
+      return sum + +sumDishes;
     }
     const dishes = JSON.parse(localStorage.getItem("sheetProducts"));
     const currentPrice = dishes.find((dish) => {
+      console.log(product);
+      console.log(dishes);
       return product.id === dish.id;
     });
 
@@ -51,14 +55,14 @@ const ShoppingCart = ({
       <ul className={s.purchaseList}>
         {[...productsList]
           .sort((a) => {
-            if (a.isDinner) {
+            if (a.isDinner === "dinner") {
               return -1;
             } else {
               return 1;
             }
           })
           .map((product) => {
-            if (product.isDinner === true) {
+            if (product.isDinner === "dinner") {
               return (
                 <DinnerItem
                   dinner={product}

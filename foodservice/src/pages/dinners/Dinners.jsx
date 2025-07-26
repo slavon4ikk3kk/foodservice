@@ -33,7 +33,7 @@ const Dinners = ({ setProductsList }) => {
 
     const filteredProducts = productsLs
       .map((product) => {
-        if (product.isDinner) {
+        if (product.isDinner === "dinner") {
           const filterArr = product.dishes.filter((dinnerInLs) => {
             const indexInArray = dinners.find((actualDinner) => {
               return (
@@ -54,7 +54,7 @@ const Dinners = ({ setProductsList }) => {
         return product;
       })
       .filter((product) => {
-        if (product.isDinner) {
+        if (product.isDinner === "dinner") {
           if (product.dishes.length === 0) {
             return false;
           }
@@ -109,7 +109,7 @@ const Dinners = ({ setProductsList }) => {
     setProductsList((prev) => {
       return [
         ...prev,
-        { isDinner: true, dishes: userCard, date: dayDate, id: uuidv4() },
+        { isDinner: "dinner", dishes: userCard, date: dayDate, id: uuidv4() },
       ];
     });
     Notify.success("Обід доданий у кошик!", {

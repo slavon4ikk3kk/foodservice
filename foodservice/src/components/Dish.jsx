@@ -31,14 +31,14 @@ const Dish = ({ name, id, price, image, setProductsList }) => {
               id,
               amount: amount + dishObj.amount,
               price: dishObj.price,
-              isDinner: false,
+              isDinner: "semiFinish",
               name: dishObj.name,
             };
           }
           return dishObj;
         });
       }
-      return [...prev, { id, amount, price, isDinner: false, name }];
+      return [...prev, { id, amount, price, isDinner: "semiFinish", name }];
     });
     Notify.success("Товар доданий у кошик!", {
       timeout: 1000,

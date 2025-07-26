@@ -6,7 +6,7 @@
   padding-top: 120px;
   text-align: center;
   background-color: #fdfdfd;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: #000; /* Чорний колір для всього тексту */
 }
 
@@ -25,7 +25,10 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(1, 1fr); /* За замовчуванням одна категорія в ряд */
+  grid-template-columns: repeat(
+    1,
+    1fr
+  ); /* За замовчуванням одна категорія в ряд */
   gap: 20px;
 }
 
@@ -80,4 +83,8 @@
   .dishList {
     grid-template-columns: 1fr; /* 1 категорія в ряд на мобільних пристроях */
   }
+}
+.bin {
+  width: 30px;
+  height: 30px;
 }
