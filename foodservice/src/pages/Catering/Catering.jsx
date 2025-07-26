@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import s from "./Catering.module.css";
 
 const NAMES = {
-  cold: "холодні закуски",
-  hot: "гарячі страви",
-  flour: "страви з борошна",
-  salad: "салати",
-  fastFood: "фастфуд",
+  cold: "Холодні закуски",
+  hot: "Гарячі страви",
+  flour: "Страви з борошна",
+  salad: "Салати",
+  fastFood: "Фаст-фуд",
   other: [],
 };
 
@@ -60,31 +60,31 @@ const Catering = () => {
   console.log(categories);
   return (
     <div className={s.dinnerContainer}>
-      <p className={s.h1}>Меню 05.2025</p>
-      {Object.keys(categories).map((categoryBlock) => {
-        if (categories[categoryBlock].length === 0) {
-          return;
-        }
-        return (
-          <React.Fragment key={categoryBlock}>
-            <p className={s.name}>{NAMES[categoryBlock]}</p>
-            <ul>
-              {categories[categoryBlock].map((dish, index) => {
-                return (
-                  <li className={s.li} key={index}>
-                    <p>{dish.name}</p>
-                    <div className={s.data}>
-                      <p><strong>Вихід:</strong> {dish.weight}</p>
-                      <p><strong>Ціна:</strong> {dish.price}</p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </React.Fragment>
-        );
-      })}
-    </div>
+  <p className={s.h1}>Меню 05.2025</p>
+  {Object.keys(categories).map((categoryKey) => {
+    const dishes = categories[categoryKey];
+    if (dishes.length === 0) return null;
+
+    return (
+      <React.Fragment key={categoryKey}>
+        <p className={s.categoryTitle}>{NAMES[categoryKey]}</p>
+        <ul className={s.list}>
+          {dishes.map((dish, index) => (
+            <li className={s.li} key={index}>
+              <span className={s.name}>{dish.name}</span>
+              <div className={s.data}>
+                <p><strong>Вихід:</strong> {dish.weight}</p>
+                <p><strong>Ціна:</strong> {dish.price}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </React.Fragment>
+    );
+  })}
+</div>
+
+
 
   );
 };
