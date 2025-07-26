@@ -4,7 +4,7 @@
   padding-top: 120px;
   text-align: center;
   background-color: #fdfdfd;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #000;
   font-weight: 500;
 }
@@ -32,24 +32,24 @@
   border-radius: 6px;
   overflow: hidden;
   background-color: #fff; /* для кращого контрасту */
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
 }
 
 .li {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #ccc; 
+  border-bottom: 2px solid #ccc;
   padding: 15px 20px;
   gap: 20px;
 }
 
 .li:last-child {
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 .li:hover {
-  background-color: #f9f9f9; 
+  background-color: #f9f9f9;
 }
 
 .name {
@@ -59,7 +59,6 @@
   word-break: break-word;
   text-align: left;
   padding-right: 20px;
-  border-right: 1px solid #ddd;
 }
 
 .data {
@@ -71,13 +70,19 @@
   font-weight: 400;
   min-width: 120px;
   padding-left: 20px;
+  border-left: 1px solid #ddd;
 }
 
 .data p {
   margin: 4px 0;
 }
 .dishCart {
-  width: 100%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
 }
 .dishMain {
   display: flex;
@@ -91,7 +96,7 @@
 }
 .purchaseButton {
   background-color: black;
-  margin: 15px 0px;
+
   color: white;
   width: 100%;
   height: 50px;
@@ -124,4 +129,31 @@
   left: 10px;
   background-color: transparent;
   height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .li {
+    flex-direction: column;
+  }
+  .dishCart {
+    width: 200px;
+    flex-direction: column;
+    order: 1;
+  }
+  .inputWrap {
+    width: auto;
+  }
+  .purchaseButton {
+    width: auto;
+    padding: 0 20px;
+  }
+  .name {
+    padding-right: 0;
+    word-break: break-all;
+  }
+  .data {
+    border: none;
+    padding-left: 0;
+    align-items: center;
+  }
 }
