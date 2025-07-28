@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import s from "./Catering.module.css";
 const Controls = ({ setProductsList, dish }) => {
-  console.log(dish);
   const [amount, setAmount] = useState(0);
   function HandleAmountChange(e) {
     setAmount(e.target.value);
