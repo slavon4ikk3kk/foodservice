@@ -5,8 +5,6 @@ import Dishes from "../../Data/dishes.jsx";
 import Api from "../../API/Api.js";
 const Cabinet = ({ setProductsList }) => {
   const [products, setProducts] = useState([]);
-  
-  
 
   useEffect(() => {
     localStorage.setItem("sheetProducts", JSON.stringify(products));

@@ -33,7 +33,7 @@ const DinnerItem = ({ dinner, setProductsList }) => {
       <ul>
         {dinner.dishes.map((dish) => {
           return (
-            <li className={s.dinnerList}>
+            <li key={dish.name} className={s.dinnerList}>
               <p className={s.dishName}>{dish.name}</p>
               <div className={s.dinnerData}>
                 <p>{dish.price ? dish.price + "₴" : "Безкоштовно"}</p>

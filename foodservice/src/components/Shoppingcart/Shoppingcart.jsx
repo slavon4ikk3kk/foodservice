@@ -6,6 +6,7 @@ import ShoppingcartItem from "./ShoppingcartItem";
 import Success from "../Success/Success";
 import DinnerItem from "./DinnerItem";
 import { Loading } from "notiflix";
+import CateringItem from "./CateringItem";
 
 const ShoppingCart = ({
   setProductsList,
@@ -21,6 +22,9 @@ const ShoppingCart = ({
         return acc + +dish.price;
       }, 0);
       return sum + +sumDishes;
+    }
+    if (product.isDinner === "catering") {
+      return sum + product.amount * product.price;
     }
     const dishes = JSON.parse(localStorage.getItem("sheetProducts"));
     const currentPrice = dishes.find((dish) => {
@@ -66,6 +70,15 @@ const ShoppingCart = ({
               return (
                 <DinnerItem
                   dinner={product}
+                  setProductsList={setProductsList}
+                />
+              );
+            }
+            if (product.isDinner === "catering") {
+              return (
+                <CateringItem
+                  currentDish={product}
+                  amount={product.amount}
                   setProductsList={setProductsList}
                 />
               );
