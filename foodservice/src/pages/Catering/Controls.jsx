@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import s from "./Catering.module.css";
+import { Notify } from "notiflix";
 const Controls = ({ setProductsList, dish }) => {
   const [amount, setAmount] = useState(0);
   function HandleAmountChange(e) {
@@ -53,9 +54,9 @@ const Controls = ({ setProductsList, dish }) => {
         },
       ];
     });
-    // Notify.success("Товар доданий у кошик!", {
-    //   timeout: 1000,
-    // });
+    Notify.success("Товар доданий у кошик!", {
+      timeout: 1000,
+    });
     setAmount(0);
   }
 
