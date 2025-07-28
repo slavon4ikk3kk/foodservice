@@ -27,14 +27,14 @@ const DinnerItem = ({ dinner, setProductsList }) => {
   }
 
   return (
-    <div>
+    <div className={s.dinnerContainer}>
       <p className={s.title}>Обід</p>
       <p className={s.date}>{dinner.date}</p>
       <ul>
         {dinner.dishes.map((dish) => {
           return (
             <li className={s.dinnerList}>
-              <p>{dish.name}</p>
+              <p className={s.dishName}>{dish.name}</p>
               <div className={s.dinnerData}>
                 <p>{dish.price ? dish.price + "₴" : "Безкоштовно"}</p>
                 <button

@@ -46,7 +46,7 @@ const ShoppingcartItem = ({
           <img src={currentDish.image} className={s.currentImg}></img>
           <div className={s.rightSide}>
             <div className={s.names}>
-              <p>{currentDish.name}</p>
+              <p className={s.currentDish}>{currentDish.name}</p>
               <button onClick={onDelete} className={s.binButton}>
                 <img src={images.bin} className={s.bin}></img>
               </button>

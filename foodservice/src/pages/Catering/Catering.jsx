@@ -9,7 +9,7 @@ const NAMES = {
   fastFood: "Фаст-фуд",
   other: [],
 };
-
+const cateringLink = process.env.CATERING_LINK
 const Catering = ({setProductsList}) => {
   const [catering, setCatering] = useState(() => {
     return [];
@@ -67,9 +67,7 @@ const Catering = ({setProductsList}) => {
       setAmount(0);
     }
   useEffect(() => {
-    fetch(
-      "https://script.google.com/macros/s/AKfycby6Dw51AY84hUh2QHFN76XM3Jjj9jrCUe98dtzZI-lG_TWbBBOJpNbke_5zlwI37Ojx/exec"
-    )
+    fetch(cateringLink)
       .then((res) => res.json())
       .then(setCatering)
       .catch((err) => console.error("Помилка завантаження обідів:", err));

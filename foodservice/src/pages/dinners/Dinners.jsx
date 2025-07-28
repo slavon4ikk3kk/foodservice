@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 import { Notify } from "notiflix";
 
 const { days, months } = kyrylicNames;
+const dinnersLink = process.env.DINNERS_LINK
 const Dinners = ({ setProductsList }) => {
   const [dinners, setDinners] = useState(() => {
     const LS = JSON.parse(localStorage.getItem("sheetDinners"));
@@ -17,9 +18,7 @@ const Dinners = ({ setProductsList }) => {
   });
 
   useEffect(() => {
-    fetch(
-      "https://script.google.com/macros/s/AKfycbzQoltc2OQ5pTluvrxMxSBRrwW-Lb-oY-O_QnG58nCOuoWJmiRBK1e7KaNeEbpE7zCm/exec"
-    )
+    fetch(dinnersLink)
       .then((res) => res.json())
       .then(setDinners)
       .catch((err) => console.error("Помилка завантаження обідів:", err));

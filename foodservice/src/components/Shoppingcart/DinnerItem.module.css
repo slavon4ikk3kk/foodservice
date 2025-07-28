@@ -1,89 +1,64 @@
-/* Dinner.module.css */
-
-/* Загальний стиль для контейнера */
 .dinnerContainer {
-  padding: 20px;
-  padding-top: 120px;
-  text-align: center;
-  background-color: #fdfdfd;
-  font-family: "Arial", sans-serif;
-  color: #000; /* Чорний колір для всього тексту */
+  padding: 20px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Заголовок "Меню 05.2025" */
-.heading {
+.title {
   font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  color: #000;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-/* Список категорій */
-.dishList {
+.date {
+  font-size: 14px;
+  color: black;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(
-    1,
-    1fr
-  ); /* За замовчуванням одна категорія в ряд */
-  gap: 20px;
 }
 
-/* Один елемент категорії */
-.dishItem {
-  border: 1px solid #ddd;
-  padding: 20px;
-  text-align: left;
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.dinnerList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-/* Назва страви */
 .dishName {
-  font-weight: bold;
-  margin: 0;
   font-size: 18px;
-  color: #000;
+  font-weight: 500;
+  color: #333;
 }
 
-/* Стилі для кнопки "додати до кошика" */
-.addToCartButton {
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #000;
-  color: white;
+.dinnerData {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dinnerData p {
+  font-size: 16px;
+  color: #666;
+}
+
+.binButton {
+  background: none;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  padding: 0;
 }
 
-.addToCartButton:hover {
-  background-color: #333;
-}
-
-/* Адаптивність для великих екранів (десктоп) */
-@media screen and (min-width: 1024px) {
-  .dishList {
-    grid-template-columns: repeat(4, 1fr); /* 4 категорії в ряд на десктопі */
-  }
-}
-
-/* Адаптивність для планшетів */
-@media screen and (max-width: 1023px) and (min-width: 768px) {
-  .dishList {
-    grid-template-columns: repeat(2, 1fr); /* 2 категорії в ряд на планшетах */
-  }
-}
-
-/* Адаптивність для мобільних пристроїв */
-@media screen and (max-width: 767px) {
-  .dishList {
-    grid-template-columns: 1fr; /* 1 категорія в ряд на мобільних пристроях */
-  }
-}
 .bin {
   width: 30px;
   height: 30px;

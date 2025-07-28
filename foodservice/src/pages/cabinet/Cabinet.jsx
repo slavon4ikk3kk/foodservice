@@ -5,15 +5,15 @@ import Dishes from "../../Data/dishes.jsx";
 
 const Cabinet = ({ setProductsList }) => {
   const [products, setProducts] = useState([]);
+  
+  const cabinetLink = process.env.SEMIFINISHED_LINK
 
   useEffect(() => {
     localStorage.setItem("sheetProducts", JSON.stringify(products));
   }, [products]);
 
   useEffect(() => {
-    fetch(
-      "https://script.google.com/macros/s/AKfycbxqoFtUA_dQltE6iAdqL5ytSTvsdk2MahA4pUdGK2zyM_pQb6iouhBJjbXTTyhqHrG_/exec"
-    )
+    fetch(cabinetLink)
       .then((res) => res.json())
       .then(setProducts)
       .catch((err) => console.error("Помилка завантаження продуктів:", err));

@@ -44,25 +44,6 @@ const Success = ({
 
     validMessage += `\n\nЗагальна ціна замовлення: ${totalCost}₴`;
     validMessage += `\nІм'я: ${name} \nАдреса: ${address} \nТелефон: ${phone}`;
-
-    const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
-    try {
-      await axios.post(apiUrl, {
-        chat_id: chatId,
-        text: validMessage,
-      });
-      Notify.success("Заявка успішно відправлена", {
-        timeout: 3000,
-      });
-      setProductsList([]);
-      setIsConfirmAddress(true);
-    } catch (error) {
-      console.log("помилка");
-      Notify.failure("Сталася помилка", {
-        timeout: 3000,
-      });
-      setIsConfirmAddress(false);
-    }
     chatId.forEach(async (chat_id) => {
       const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
       try {
@@ -76,8 +57,7 @@ const Success = ({
         setProductsList([]);
         setIsConfirmAddress(true);
       } catch (error) {
-        console.log("помилка");
-        console.log(error);
+        console.log("помилка", error);
         Notify.failure("Сталася помилка", {
           timeout: 3000,
         });
