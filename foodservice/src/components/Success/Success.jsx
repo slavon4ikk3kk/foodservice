@@ -129,7 +129,10 @@ const Success = ({
         {isConfirmAddress ? (
           <>
             <p className={s.successModalText}>
-              Замовлення було успішно прийняте!
+              Замовлення було успішно прийняте! 
+            </p>
+            <p>
+              Ваш номер замовлення: №{count}
             </p>
             {/* <button className={`${s.buttonPayment} ${s.button}`}>
               <a target="_blank" rel="noopener noreferrer nofollow" href="#">
