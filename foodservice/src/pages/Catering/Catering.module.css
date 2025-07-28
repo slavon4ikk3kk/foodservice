@@ -142,6 +142,7 @@
   }
   .inputWrap {
     width: auto;
+    order: -1;
   }
   .purchaseButton {
     width: auto;

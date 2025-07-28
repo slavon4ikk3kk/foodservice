@@ -5,9 +5,8 @@ import generateWorkingDays from "../../helpers/generateWorkingDays";
 import s from "./Dinners.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { Notify } from "notiflix";
-
+import Api from "../../API/Api.js";
 const { days, months } = kyrylicNames;
-const dinnersLink = process.env.DINNERS_LINK
 const Dinners = ({ setProductsList }) => {
   const [dinners, setDinners] = useState(() => {
     const LS = JSON.parse(localStorage.getItem("sheetDinners"));
@@ -18,7 +17,9 @@ const Dinners = ({ setProductsList }) => {
   });
 
   useEffect(() => {
-    fetch(dinnersLink)
+    fetch(
+      Api.dinners
+    )
       .then((res) => res.json())
       .then(setDinners)
       .catch((err) => console.error("Помилка завантаження обідів:", err));

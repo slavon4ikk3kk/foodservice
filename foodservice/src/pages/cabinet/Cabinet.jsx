@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import Dish from "../../components/Dish";
 import s from "./Cabinet.module.css";
 import Dishes from "../../Data/dishes.jsx";
-
+import Api from "../../API/Api.js";
 const Cabinet = ({ setProductsList }) => {
   const [products, setProducts] = useState([]);
   
-  const cabinetLink = process.env.SEMIFINISHED_LINK
+  
 
   useEffect(() => {
     localStorage.setItem("sheetProducts", JSON.stringify(products));
   }, [products]);
 
   useEffect(() => {
-    fetch(cabinetLink)
+    fetch(Api.semifinished)
       .then((res) => res.json())
       .then(setProducts)
       .catch((err) => console.error("Помилка завантаження продуктів:", err));

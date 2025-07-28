@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import s from "./Catering.module.css";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
+import Api from "../../API/Api";
+
 const NAMES = {
   cold: "Холодні закуски",
   hot: "Гарячі страви",
@@ -9,7 +11,7 @@ const NAMES = {
   fastFood: "Фаст-фуд",
   other: [],
 };
-const cateringLink = process.env.CATERING_LINK
+
 const Catering = ({setProductsList}) => {
   const [catering, setCatering] = useState(() => {
     return [];
@@ -67,7 +69,9 @@ const Catering = ({setProductsList}) => {
       setAmount(0);
     }
   useEffect(() => {
-    fetch(cateringLink)
+    fetch(
+      Api.catering
+    )
       .then((res) => res.json())
       .then(setCatering)
       .catch((err) => console.error("Помилка завантаження обідів:", err));
